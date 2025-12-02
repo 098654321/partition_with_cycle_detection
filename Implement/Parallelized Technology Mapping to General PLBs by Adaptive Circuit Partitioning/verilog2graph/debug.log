@@ -1,0 +1,1133 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+
+-- Running command `
+    read_verilog ../../../yosys/demo.v;
+    synth -top fifo
+    write_edif demo.edif    
+    show -format png -prefix demo fifo
+' --
+
+1. Executing Verilog-2005 frontend: ../../../yosys/demo.v
+Parsing Verilog input from `../../../yosys/demo.v' to AST representation.
+verilog frontend filename ../../../yosys/demo.v
+Generating RTLIL representation for module `\addr_gen'.
+Generating RTLIL representation for module `\fifo'.
+Successfully finished Verilog frontend.
+
+2. Executing SYNTH pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \fifo
+Used module:     \addr_gen
+Parameter \MAX_DATA = 256
+
+2.1.2. Executing AST frontend in derive mode using pre-parsed AST for module `\addr_gen'.
+Parameter \MAX_DATA = 256
+Generating RTLIL representation for module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+Parameter \MAX_DATA = 256
+Found cached RTLIL representation for module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+
+2.1.3. Analyzing design hierarchy..
+Top module:  \fifo
+Used module:     $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000
+
+2.1.4. Analyzing design hierarchy..
+Top module:  \fifo
+Used module:     $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000
+Removing unused module `\addr_gen'.
+Removed 1 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$../../../yosys/demo.v:62$14 in module fifo.
+Marked 1 switch rules as full_case in process $proc$../../../yosys/demo.v:36$6 in module fifo.
+Marked 2 switch rules as full_case in process $proc$../../../yosys/demo.v:12$22 in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 6 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\fifo.$proc$../../../yosys/demo.v:60$21'.
+  Set init value: \count = 9'000000000
+Found init rule in `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.$proc$../../../yosys/demo.v:8$25'.
+  Set init value: \addr = 8'00000000
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst in `\fifo.$proc$../../../yosys/demo.v:62$14'.
+Found async reset \rst in `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.$proc$../../../yosys/demo.v:12$22'.
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~5 debug messages>
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\fifo.$proc$../../../yosys/demo.v:60$21'.
+Creating decoders for process `\fifo.$proc$../../../yosys/demo.v:62$14'.
+     1/1: $0\count[8:0]
+Creating decoders for process `\fifo.$proc$../../../yosys/demo.v:36$6'.
+     1/3: $1$memwr$\data$../../../yosys/demo.v:38$5_EN[7:0]$12
+     2/3: $1$memwr$\data$../../../yosys/demo.v:38$5_DATA[7:0]$11
+     3/3: $1$memwr$\data$../../../yosys/demo.v:38$5_ADDR[7:0]$10
+Creating decoders for process `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.$proc$../../../yosys/demo.v:8$25'.
+Creating decoders for process `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.$proc$../../../yosys/demo.v:12$22'.
+     1/1: $0\addr[7:0]
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\fifo.\count' using process `\fifo.$proc$../../../yosys/demo.v:62$14'.
+  created $adff cell `$procdff$47' with positive edge clock and positive level reset.
+Creating register for signal `\fifo.\rdata' using process `\fifo.$proc$../../../yosys/demo.v:36$6'.
+  created $dff cell `$procdff$48' with positive edge clock.
+Creating register for signal `\fifo.$memwr$\data$../../../yosys/demo.v:38$5_ADDR' using process `\fifo.$proc$../../../yosys/demo.v:36$6'.
+  created $dff cell `$procdff$49' with positive edge clock.
+Creating register for signal `\fifo.$memwr$\data$../../../yosys/demo.v:38$5_DATA' using process `\fifo.$proc$../../../yosys/demo.v:36$6'.
+  created $dff cell `$procdff$50' with positive edge clock.
+Creating register for signal `\fifo.$memwr$\data$../../../yosys/demo.v:38$5_EN' using process `\fifo.$proc$../../../yosys/demo.v:36$6'.
+  created $dff cell `$procdff$51' with positive edge clock.
+Creating register for signal `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.\addr' using process `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.$proc$../../../yosys/demo.v:12$22'.
+  created $adff cell `$procdff$54' with positive edge clock and positive level reset.
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `fifo.$proc$../../../yosys/demo.v:60$21'.
+Found and cleaned up 2 empty switches in `\fifo.$proc$../../../yosys/demo.v:62$14'.
+Removing empty process `fifo.$proc$../../../yosys/demo.v:62$14'.
+Found and cleaned up 1 empty switch in `\fifo.$proc$../../../yosys/demo.v:36$6'.
+Removing empty process `fifo.$proc$../../../yosys/demo.v:36$6'.
+Removing empty process `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.$proc$../../../yosys/demo.v:8$25'.
+Found and cleaned up 2 empty switches in `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.$proc$../../../yosys/demo.v:12$22'.
+Removing empty process `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.$proc$../../../yosys/demo.v:12$22'.
+Cleaned up 5 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fifo.
+<suppressed ~1 debug messages>
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+<suppressed ~1 debug messages>
+
+2.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fifo.
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+
+2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fifo..
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Removed 3 unused cells and 23 unused wires.
+<suppressed ~5 debug messages>
+
+2.5. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000...
+Checking module fifo...
+Found and reported 0 problems.
+
+2.6. Executing OPT pass (performing simple optimizations).
+
+2.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+Optimizing module fifo.
+
+2.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+Finding identical cells in module `\fifo'.
+Removed a total of 0 cells.
+
+2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~12 debug messages>
+
+2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+  Optimizing cells in module \fifo.
+    Consolidated identical input bits for $mux cell $procmux$32:
+      Old ports: A=8'00000000, B=8'11111111, Y=$0$memwr$\data$../../../yosys/demo.v:38$5_EN[7:0]$9
+      New ports: A=1'0, B=1'1, Y=$0$memwr$\data$../../../yosys/demo.v:38$5_EN[7:0]$9 [0]
+      New connections: $0$memwr$\data$../../../yosys/demo.v:38$5_EN[7:0]$9 [7:1] = { $0$memwr$\data$../../../yosys/demo.v:38$5_EN[7:0]$9 [0] $0$memwr$\data$../../../yosys/demo.v:38$5_EN[7:0]$9 [0] $0$memwr$\data$../../../yosys/demo.v:38$5_EN[7:0]$9 [0] $0$memwr$\data$../../../yosys/demo.v:38$5_EN[7:0]$9 [0] $0$memwr$\data$../../../yosys/demo.v:38$5_EN[7:0]$9 [0] $0$memwr$\data$../../../yosys/demo.v:38$5_EN[7:0]$9 [0] $0$memwr$\data$../../../yosys/demo.v:38$5_EN[7:0]$9 [0] }
+  Optimizing cells in module \fifo.
+Performed a total of 1 changes.
+
+2.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+Finding identical cells in module `\fifo'.
+Removed a total of 0 cells.
+
+2.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Finding unused cells or wires in module \fifo..
+
+2.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+Optimizing module fifo.
+
+2.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~12 debug messages>
+
+2.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+  Optimizing cells in module \fifo.
+Performed a total of 0 changes.
+
+2.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+Finding identical cells in module `\fifo'.
+Removed a total of 0 cells.
+
+2.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Finding unused cells or wires in module \fifo..
+
+2.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+Optimizing module fifo.
+
+2.6.16. Finished fast OPT passes. (There is nothing left to do.)
+
+2.7. Executing FSM pass (extract and optimize FSM).
+
+2.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+2.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+2.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Finding unused cells or wires in module \fifo..
+
+2.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+2.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+2.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+2.8. Executing OPT pass (performing simple optimizations).
+
+2.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+Optimizing module fifo.
+
+2.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+Finding identical cells in module `\fifo'.
+Removed a total of 0 cells.
+
+2.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~12 debug messages>
+
+2.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+  Optimizing cells in module \fifo.
+Performed a total of 0 changes.
+
+2.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+Finding identical cells in module `\fifo'.
+Removed a total of 0 cells.
+
+2.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$54 ($adff) from module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000 (D = $procmux$41_Y, Q = \addr).
+Adding EN signal on $procdff$47 ($adff) from module fifo (D = $0\count[8:0], Q = \count).
+
+2.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Finding unused cells or wires in module \fifo..
+Removed 1 unused cells and 1 unused wires.
+<suppressed ~2 debug messages>
+
+2.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+Optimizing module fifo.
+<suppressed ~1 debug messages>
+
+2.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+2.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+  Optimizing cells in module \fifo.
+Performed a total of 0 changes.
+
+2.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+Finding identical cells in module `\fifo'.
+Removed a total of 0 cells.
+
+2.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Finding unused cells or wires in module \fifo..
+
+2.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+Optimizing module fifo.
+
+2.8.16. Finished fast OPT passes. (There is nothing left to do.)
+
+2.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from port B of cell $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.$add$../../../yosys/demo.v:19$24 ($add).
+Removed top 24 bits (of 32) from port Y of cell $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.$add$../../../yosys/demo.v:19$24 ($add).
+Removed top 24 bits (of 32) from wire $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.$add$../../../yosys/demo.v:19$24_Y.
+Removed top 31 bits (of 32) from port B of cell fifo.$add$../../../yosys/demo.v:66$17 ($add).
+Removed top 23 bits (of 32) from port Y of cell fifo.$add$../../../yosys/demo.v:66$17 ($add).
+Removed top 31 bits (of 32) from port B of cell fifo.$sub$../../../yosys/demo.v:68$20 ($sub).
+Removed top 23 bits (of 32) from port Y of cell fifo.$sub$../../../yosys/demo.v:68$20 ($sub).
+Removed top 23 bits (of 32) from wire fifo.$add$../../../yosys/demo.v:66$17_Y.
+Removed top 23 bits (of 32) from wire fifo.$sub$../../../yosys/demo.v:68$20_Y.
+
+2.10. Executing PEEPOPT pass (run peephole optimizers).
+
+2.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Finding unused cells or wires in module \fifo..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~2 debug messages>
+
+2.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000:
+  creating $macc model for $add$../../../yosys/demo.v:19$24 ($add).
+  creating $alu model for $macc $add$../../../yosys/demo.v:19$24.
+  creating $alu cell for $add$../../../yosys/demo.v:19$24: $auto$alumacc.cc:512:replace_alu$63
+  created 1 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module fifo:
+  creating $macc model for $add$../../../yosys/demo.v:66$17 ($add).
+  creating $macc model for $sub$../../../yosys/demo.v:68$20 ($sub).
+  creating $alu model for $macc $sub$../../../yosys/demo.v:68$20.
+  creating $alu model for $macc $add$../../../yosys/demo.v:66$17.
+  creating $alu cell for $add$../../../yosys/demo.v:66$17: $auto$alumacc.cc:512:replace_alu$66
+  creating $alu cell for $sub$../../../yosys/demo.v:68$20: $auto$alumacc.cc:512:replace_alu$69
+  created 2 $alu and 0 $macc cells.
+
+2.13. Executing SHARE pass (SAT-based resource sharing).
+
+2.14. Executing OPT pass (performing simple optimizations).
+
+2.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+Optimizing module fifo.
+
+2.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+Finding identical cells in module `\fifo'.
+Removed a total of 0 cells.
+
+2.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+2.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+  Optimizing cells in module \fifo.
+Performed a total of 0 changes.
+
+2.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+Finding identical cells in module `\fifo'.
+Removed a total of 0 cells.
+
+2.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Finding unused cells or wires in module \fifo..
+
+2.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+Optimizing module fifo.
+
+2.14.9. Finished fast OPT passes. (There is nothing left to do.)
+
+2.15. Executing MEMORY pass.
+
+2.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+2.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+2.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+  Analyzing fifo.data write port 0.
+
+2.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+2.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\data'[0] in module `\fifo': merging output FF to cell.
+    Write port 0: non-transparent.
+
+2.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Finding unused cells or wires in module \fifo..
+Removed 1 unused cells and 9 unused wires.
+<suppressed ~2 debug messages>
+
+2.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+2.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+2.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Finding unused cells or wires in module \fifo..
+
+2.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Finding unused cells or wires in module \fifo..
+
+2.17. Executing OPT pass (performing simple optimizations).
+
+2.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+Optimizing module fifo.
+<suppressed ~4 debug messages>
+
+2.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+Finding identical cells in module `\fifo'.
+Removed a total of 0 cells.
+
+2.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Finding unused cells or wires in module \fifo..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+2.17.5. Finished fast OPT passes.
+
+2.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory \data in module \fifo:
+  created 256 $dff cells and 0 static cells of width 8.
+Extracted data FF from read port 0 of fifo.data: $\data$rdreg[0]
+  read interface: 1 $dff and 255 $mux cells.
+  write interface: 256 write mux blocks.
+
+2.19. Executing OPT pass (performing simple optimizations).
+
+2.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+Optimizing module fifo.
+<suppressed ~16 debug messages>
+
+2.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+Finding identical cells in module `\fifo'.
+Removed a total of 0 cells.
+
+2.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~772 debug messages>
+
+2.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+  Optimizing cells in module \fifo.
+Performed a total of 0 changes.
+
+2.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+Finding identical cells in module `\fifo'.
+Removed a total of 0 cells.
+
+2.19.6. Executing OPT_SHARE pass.
+    Found cells that share an operand and can be merged by moving the $mux $procmux$29 in front of them:
+        $auto$alumacc.cc:512:replace_alu$66
+        $auto$alumacc.cc:512:replace_alu$69
+
+2.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Finding unused cells or wires in module \fifo..
+Removed 0 unused cells and 526 unused wires.
+<suppressed ~1 debug messages>
+
+2.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+Optimizing module fifo.
+<suppressed ~2 debug messages>
+
+2.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~772 debug messages>
+
+2.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+  Optimizing cells in module \fifo.
+    Consolidated identical input bits for $mux cell $auto$opt_share.cc:244:merge_operators$3025:
+      Old ports: A=9'111111111, B=9'000000001, Y=$auto$rtlil.cc:3469:Mux$3026
+      New ports: A=1'1, B=1'0, Y=$auto$rtlil.cc:3469:Mux$3026 [1]
+      New connections: { $auto$rtlil.cc:3469:Mux$3026 [8:2] $auto$rtlil.cc:3469:Mux$3026 [0] } = { $auto$rtlil.cc:3469:Mux$3026 [1] $auto$rtlil.cc:3469:Mux$3026 [1] $auto$rtlil.cc:3469:Mux$3026 [1] $auto$rtlil.cc:3469:Mux$3026 [1] $auto$rtlil.cc:3469:Mux$3026 [1] $auto$rtlil.cc:3469:Mux$3026 [1] $auto$rtlil.cc:3469:Mux$3026 [1] 1'1 }
+  Optimizing cells in module \fifo.
+Performed a total of 1 changes.
+
+2.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+Finding identical cells in module `\fifo'.
+Removed a total of 0 cells.
+
+2.19.14. Executing OPT_SHARE pass.
+
+2.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $memory\data[9]$99 ($dff) from module fifo (D = \wdata, Q = \data[9]).
+Adding EN signal on $memory\data[99]$279 ($dff) from module fifo (D = \wdata, Q = \data[99]).
+Adding EN signal on $memory\data[98]$277 ($dff) from module fifo (D = \wdata, Q = \data[98]).
+Adding EN signal on $memory\data[97]$275 ($dff) from module fifo (D = \wdata, Q = \data[97]).
+Adding EN signal on $memory\data[96]$273 ($dff) from module fifo (D = \wdata, Q = \data[96]).
+Adding EN signal on $memory\data[95]$271 ($dff) from module fifo (D = \wdata, Q = \data[95]).
+Adding EN signal on $memory\data[94]$269 ($dff) from module fifo (D = \wdata, Q = \data[94]).
+Adding EN signal on $memory\data[93]$267 ($dff) from module fifo (D = \wdata, Q = \data[93]).
+Adding EN signal on $memory\data[92]$265 ($dff) from module fifo (D = \wdata, Q = \data[92]).
+Adding EN signal on $memory\data[91]$263 ($dff) from module fifo (D = \wdata, Q = \data[91]).
+Adding EN signal on $memory\data[90]$261 ($dff) from module fifo (D = \wdata, Q = \data[90]).
+Adding EN signal on $memory\data[8]$97 ($dff) from module fifo (D = \wdata, Q = \data[8]).
+Adding EN signal on $memory\data[89]$259 ($dff) from module fifo (D = \wdata, Q = \data[89]).
+Adding EN signal on $memory\data[88]$257 ($dff) from module fifo (D = \wdata, Q = \data[88]).
+Adding EN signal on $memory\data[87]$255 ($dff) from module fifo (D = \wdata, Q = \data[87]).
+Adding EN signal on $memory\data[86]$253 ($dff) from module fifo (D = \wdata, Q = \data[86]).
+Adding EN signal on $memory\data[85]$251 ($dff) from module fifo (D = \wdata, Q = \data[85]).
+Adding EN signal on $memory\data[84]$249 ($dff) from module fifo (D = \wdata, Q = \data[84]).
+Adding EN signal on $memory\data[83]$247 ($dff) from module fifo (D = \wdata, Q = \data[83]).
+Adding EN signal on $memory\data[82]$245 ($dff) from module fifo (D = \wdata, Q = \data[82]).
+Adding EN signal on $memory\data[81]$243 ($dff) from module fifo (D = \wdata, Q = \data[81]).
+Adding EN signal on $memory\data[80]$241 ($dff) from module fifo (D = \wdata, Q = \data[80]).
+Adding EN signal on $memory\data[7]$95 ($dff) from module fifo (D = \wdata, Q = \data[7]).
+Adding EN signal on $memory\data[79]$239 ($dff) from module fifo (D = \wdata, Q = \data[79]).
+Adding EN signal on $memory\data[78]$237 ($dff) from module fifo (D = \wdata, Q = \data[78]).
+Adding EN signal on $memory\data[77]$235 ($dff) from module fifo (D = \wdata, Q = \data[77]).
+Adding EN signal on $memory\data[76]$233 ($dff) from module fifo (D = \wdata, Q = \data[76]).
+Adding EN signal on $memory\data[75]$231 ($dff) from module fifo (D = \wdata, Q = \data[75]).
+Adding EN signal on $memory\data[74]$229 ($dff) from module fifo (D = \wdata, Q = \data[74]).
+Adding EN signal on $memory\data[73]$227 ($dff) from module fifo (D = \wdata, Q = \data[73]).
+Adding EN signal on $memory\data[72]$225 ($dff) from module fifo (D = \wdata, Q = \data[72]).
+Adding EN signal on $memory\data[71]$223 ($dff) from module fifo (D = \wdata, Q = \data[71]).
+Adding EN signal on $memory\data[70]$221 ($dff) from module fifo (D = \wdata, Q = \data[70]).
+Adding EN signal on $memory\data[6]$93 ($dff) from module fifo (D = \wdata, Q = \data[6]).
+Adding EN signal on $memory\data[69]$219 ($dff) from module fifo (D = \wdata, Q = \data[69]).
+Adding EN signal on $memory\data[68]$217 ($dff) from module fifo (D = \wdata, Q = \data[68]).
+Adding EN signal on $memory\data[67]$215 ($dff) from module fifo (D = \wdata, Q = \data[67]).
+Adding EN signal on $memory\data[66]$213 ($dff) from module fifo (D = \wdata, Q = \data[66]).
+Adding EN signal on $memory\data[65]$211 ($dff) from module fifo (D = \wdata, Q = \data[65]).
+Adding EN signal on $memory\data[64]$209 ($dff) from module fifo (D = \wdata, Q = \data[64]).
+Adding EN signal on $memory\data[63]$207 ($dff) from module fifo (D = \wdata, Q = \data[63]).
+Adding EN signal on $memory\data[62]$205 ($dff) from module fifo (D = \wdata, Q = \data[62]).
+Adding EN signal on $memory\data[61]$203 ($dff) from module fifo (D = \wdata, Q = \data[61]).
+Adding EN signal on $memory\data[60]$201 ($dff) from module fifo (D = \wdata, Q = \data[60]).
+Adding EN signal on $memory\data[5]$91 ($dff) from module fifo (D = \wdata, Q = \data[5]).
+Adding EN signal on $memory\data[59]$199 ($dff) from module fifo (D = \wdata, Q = \data[59]).
+Adding EN signal on $memory\data[58]$197 ($dff) from module fifo (D = \wdata, Q = \data[58]).
+Adding EN signal on $memory\data[57]$195 ($dff) from module fifo (D = \wdata, Q = \data[57]).
+Adding EN signal on $memory\data[56]$193 ($dff) from module fifo (D = \wdata, Q = \data[56]).
+Adding EN signal on $memory\data[55]$191 ($dff) from module fifo (D = \wdata, Q = \data[55]).
+Adding EN signal on $memory\data[54]$189 ($dff) from module fifo (D = \wdata, Q = \data[54]).
+Adding EN signal on $memory\data[53]$187 ($dff) from module fifo (D = \wdata, Q = \data[53]).
+Adding EN signal on $memory\data[52]$185 ($dff) from module fifo (D = \wdata, Q = \data[52]).
+Adding EN signal on $memory\data[51]$183 ($dff) from module fifo (D = \wdata, Q = \data[51]).
+Adding EN signal on $memory\data[50]$181 ($dff) from module fifo (D = \wdata, Q = \data[50]).
+Adding EN signal on $memory\data[4]$89 ($dff) from module fifo (D = \wdata, Q = \data[4]).
+Adding EN signal on $memory\data[49]$179 ($dff) from module fifo (D = \wdata, Q = \data[49]).
+Adding EN signal on $memory\data[48]$177 ($dff) from module fifo (D = \wdata, Q = \data[48]).
+Adding EN signal on $memory\data[47]$175 ($dff) from module fifo (D = \wdata, Q = \data[47]).
+Adding EN signal on $memory\data[46]$173 ($dff) from module fifo (D = \wdata, Q = \data[46]).
+Adding EN signal on $memory\data[45]$171 ($dff) from module fifo (D = \wdata, Q = \data[45]).
+Adding EN signal on $memory\data[44]$169 ($dff) from module fifo (D = \wdata, Q = \data[44]).
+Adding EN signal on $memory\data[43]$167 ($dff) from module fifo (D = \wdata, Q = \data[43]).
+Adding EN signal on $memory\data[42]$165 ($dff) from module fifo (D = \wdata, Q = \data[42]).
+Adding EN signal on $memory\data[41]$163 ($dff) from module fifo (D = \wdata, Q = \data[41]).
+Adding EN signal on $memory\data[40]$161 ($dff) from module fifo (D = \wdata, Q = \data[40]).
+Adding EN signal on $memory\data[3]$87 ($dff) from module fifo (D = \wdata, Q = \data[3]).
+Adding EN signal on $memory\data[39]$159 ($dff) from module fifo (D = \wdata, Q = \data[39]).
+Adding EN signal on $memory\data[38]$157 ($dff) from module fifo (D = \wdata, Q = \data[38]).
+Adding EN signal on $memory\data[37]$155 ($dff) from module fifo (D = \wdata, Q = \data[37]).
+Adding EN signal on $memory\data[36]$153 ($dff) from module fifo (D = \wdata, Q = \data[36]).
+Adding EN signal on $memory\data[35]$151 ($dff) from module fifo (D = \wdata, Q = \data[35]).
+Adding EN signal on $memory\data[34]$149 ($dff) from module fifo (D = \wdata, Q = \data[34]).
+Adding EN signal on $memory\data[33]$147 ($dff) from module fifo (D = \wdata, Q = \data[33]).
+Adding EN signal on $memory\data[32]$145 ($dff) from module fifo (D = \wdata, Q = \data[32]).
+Adding EN signal on $memory\data[31]$143 ($dff) from module fifo (D = \wdata, Q = \data[31]).
+Adding EN signal on $memory\data[30]$141 ($dff) from module fifo (D = \wdata, Q = \data[30]).
+Adding EN signal on $memory\data[2]$85 ($dff) from module fifo (D = \wdata, Q = \data[2]).
+Adding EN signal on $memory\data[29]$139 ($dff) from module fifo (D = \wdata, Q = \data[29]).
+Adding EN signal on $memory\data[28]$137 ($dff) from module fifo (D = \wdata, Q = \data[28]).
+Adding EN signal on $memory\data[27]$135 ($dff) from module fifo (D = \wdata, Q = \data[27]).
+Adding EN signal on $memory\data[26]$133 ($dff) from module fifo (D = \wdata, Q = \data[26]).
+Adding EN signal on $memory\data[25]$131 ($dff) from module fifo (D = \wdata, Q = \data[25]).
+Adding EN signal on $memory\data[255]$591 ($dff) from module fifo (D = \wdata, Q = \data[255]).
+Adding EN signal on $memory\data[254]$589 ($dff) from module fifo (D = \wdata, Q = \data[254]).
+Adding EN signal on $memory\data[253]$587 ($dff) from module fifo (D = \wdata, Q = \data[253]).
+Adding EN signal on $memory\data[252]$585 ($dff) from module fifo (D = \wdata, Q = \data[252]).
+Adding EN signal on $memory\data[251]$583 ($dff) from module fifo (D = \wdata, Q = \data[251]).
+Adding EN signal on $memory\data[250]$581 ($dff) from module fifo (D = \wdata, Q = \data[250]).
+Adding EN signal on $memory\data[24]$129 ($dff) from module fifo (D = \wdata, Q = \data[24]).
+Adding EN signal on $memory\data[249]$579 ($dff) from module fifo (D = \wdata, Q = \data[249]).
+Adding EN signal on $memory\data[248]$577 ($dff) from module fifo (D = \wdata, Q = \data[248]).
+Adding EN signal on $memory\data[247]$575 ($dff) from module fifo (D = \wdata, Q = \data[247]).
+Adding EN signal on $memory\data[246]$573 ($dff) from module fifo (D = \wdata, Q = \data[246]).
+Adding EN signal on $memory\data[245]$571 ($dff) from module fifo (D = \wdata, Q = \data[245]).
+Adding EN signal on $memory\data[244]$569 ($dff) from module fifo (D = \wdata, Q = \data[244]).
+Adding EN signal on $memory\data[243]$567 ($dff) from module fifo (D = \wdata, Q = \data[243]).
+Adding EN signal on $memory\data[242]$565 ($dff) from module fifo (D = \wdata, Q = \data[242]).
+Adding EN signal on $memory\data[241]$563 ($dff) from module fifo (D = \wdata, Q = \data[241]).
+Adding EN signal on $memory\data[240]$561 ($dff) from module fifo (D = \wdata, Q = \data[240]).
+Adding EN signal on $memory\data[23]$127 ($dff) from module fifo (D = \wdata, Q = \data[23]).
+Adding EN signal on $memory\data[239]$559 ($dff) from module fifo (D = \wdata, Q = \data[239]).
+Adding EN signal on $memory\data[238]$557 ($dff) from module fifo (D = \wdata, Q = \data[238]).
+Adding EN signal on $memory\data[237]$555 ($dff) from module fifo (D = \wdata, Q = \data[237]).
+Adding EN signal on $memory\data[236]$553 ($dff) from module fifo (D = \wdata, Q = \data[236]).
+Adding EN signal on $memory\data[235]$551 ($dff) from module fifo (D = \wdata, Q = \data[235]).
+Adding EN signal on $memory\data[234]$549 ($dff) from module fifo (D = \wdata, Q = \data[234]).
+Adding EN signal on $memory\data[233]$547 ($dff) from module fifo (D = \wdata, Q = \data[233]).
+Adding EN signal on $memory\data[232]$545 ($dff) from module fifo (D = \wdata, Q = \data[232]).
+Adding EN signal on $memory\data[231]$543 ($dff) from module fifo (D = \wdata, Q = \data[231]).
+Adding EN signal on $memory\data[230]$541 ($dff) from module fifo (D = \wdata, Q = \data[230]).
+Adding EN signal on $memory\data[22]$125 ($dff) from module fifo (D = \wdata, Q = \data[22]).
+Adding EN signal on $memory\data[229]$539 ($dff) from module fifo (D = \wdata, Q = \data[229]).
+Adding EN signal on $memory\data[228]$537 ($dff) from module fifo (D = \wdata, Q = \data[228]).
+Adding EN signal on $memory\data[227]$535 ($dff) from module fifo (D = \wdata, Q = \data[227]).
+Adding EN signal on $memory\data[226]$533 ($dff) from module fifo (D = \wdata, Q = \data[226]).
+Adding EN signal on $memory\data[225]$531 ($dff) from module fifo (D = \wdata, Q = \data[225]).
+Adding EN signal on $memory\data[224]$529 ($dff) from module fifo (D = \wdata, Q = \data[224]).
+Adding EN signal on $memory\data[223]$527 ($dff) from module fifo (D = \wdata, Q = \data[223]).
+Adding EN signal on $memory\data[222]$525 ($dff) from module fifo (D = \wdata, Q = \data[222]).
+Adding EN signal on $memory\data[221]$523 ($dff) from module fifo (D = \wdata, Q = \data[221]).
+Adding EN signal on $memory\data[220]$521 ($dff) from module fifo (D = \wdata, Q = \data[220]).
+Adding EN signal on $memory\data[21]$123 ($dff) from module fifo (D = \wdata, Q = \data[21]).
+Adding EN signal on $memory\data[219]$519 ($dff) from module fifo (D = \wdata, Q = \data[219]).
+Adding EN signal on $memory\data[218]$517 ($dff) from module fifo (D = \wdata, Q = \data[218]).
+Adding EN signal on $memory\data[217]$515 ($dff) from module fifo (D = \wdata, Q = \data[217]).
+Adding EN signal on $memory\data[216]$513 ($dff) from module fifo (D = \wdata, Q = \data[216]).
+Adding EN signal on $memory\data[215]$511 ($dff) from module fifo (D = \wdata, Q = \data[215]).
+Adding EN signal on $memory\data[214]$509 ($dff) from module fifo (D = \wdata, Q = \data[214]).
+Adding EN signal on $memory\data[213]$507 ($dff) from module fifo (D = \wdata, Q = \data[213]).
+Adding EN signal on $memory\data[212]$505 ($dff) from module fifo (D = \wdata, Q = \data[212]).
+Adding EN signal on $memory\data[211]$503 ($dff) from module fifo (D = \wdata, Q = \data[211]).
+Adding EN signal on $memory\data[210]$501 ($dff) from module fifo (D = \wdata, Q = \data[210]).
+Adding EN signal on $memory\data[20]$121 ($dff) from module fifo (D = \wdata, Q = \data[20]).
+Adding EN signal on $memory\data[209]$499 ($dff) from module fifo (D = \wdata, Q = \data[209]).
+Adding EN signal on $memory\data[208]$497 ($dff) from module fifo (D = \wdata, Q = \data[208]).
+Adding EN signal on $memory\data[207]$495 ($dff) from module fifo (D = \wdata, Q = \data[207]).
+Adding EN signal on $memory\data[206]$493 ($dff) from module fifo (D = \wdata, Q = \data[206]).
+Adding EN signal on $memory\data[205]$491 ($dff) from module fifo (D = \wdata, Q = \data[205]).
+Adding EN signal on $memory\data[204]$489 ($dff) from module fifo (D = \wdata, Q = \data[204]).
+Adding EN signal on $memory\data[203]$487 ($dff) from module fifo (D = \wdata, Q = \data[203]).
+Adding EN signal on $memory\data[202]$485 ($dff) from module fifo (D = \wdata, Q = \data[202]).
+Adding EN signal on $memory\data[201]$483 ($dff) from module fifo (D = \wdata, Q = \data[201]).
+Adding EN signal on $memory\data[200]$481 ($dff) from module fifo (D = \wdata, Q = \data[200]).
+Adding EN signal on $memory\data[1]$83 ($dff) from module fifo (D = \wdata, Q = \data[1]).
+Adding EN signal on $memory\data[19]$119 ($dff) from module fifo (D = \wdata, Q = \data[19]).
+Adding EN signal on $memory\data[199]$479 ($dff) from module fifo (D = \wdata, Q = \data[199]).
+Adding EN signal on $memory\data[198]$477 ($dff) from module fifo (D = \wdata, Q = \data[198]).
+Adding EN signal on $memory\data[197]$475 ($dff) from module fifo (D = \wdata, Q = \data[197]).
+Adding EN signal on $memory\data[196]$473 ($dff) from module fifo (D = \wdata, Q = \data[196]).
+Adding EN signal on $memory\data[195]$471 ($dff) from module fifo (D = \wdata, Q = \data[195]).
+Adding EN signal on $memory\data[194]$469 ($dff) from module fifo (D = \wdata, Q = \data[194]).
+Adding EN signal on $memory\data[193]$467 ($dff) from module fifo (D = \wdata, Q = \data[193]).
+Adding EN signal on $memory\data[192]$465 ($dff) from module fifo (D = \wdata, Q = \data[192]).
+Adding EN signal on $memory\data[191]$463 ($dff) from module fifo (D = \wdata, Q = \data[191]).
+Adding EN signal on $memory\data[190]$461 ($dff) from module fifo (D = \wdata, Q = \data[190]).
+Adding EN signal on $memory\data[18]$117 ($dff) from module fifo (D = \wdata, Q = \data[18]).
+Adding EN signal on $memory\data[189]$459 ($dff) from module fifo (D = \wdata, Q = \data[189]).
+Adding EN signal on $memory\data[188]$457 ($dff) from module fifo (D = \wdata, Q = \data[188]).
+Adding EN signal on $memory\data[187]$455 ($dff) from module fifo (D = \wdata, Q = \data[187]).
+Adding EN signal on $memory\data[186]$453 ($dff) from module fifo (D = \wdata, Q = \data[186]).
+Adding EN signal on $memory\data[185]$451 ($dff) from module fifo (D = \wdata, Q = \data[185]).
+Adding EN signal on $memory\data[184]$449 ($dff) from module fifo (D = \wdata, Q = \data[184]).
+Adding EN signal on $memory\data[183]$447 ($dff) from module fifo (D = \wdata, Q = \data[183]).
+Adding EN signal on $memory\data[182]$445 ($dff) from module fifo (D = \wdata, Q = \data[182]).
+Adding EN signal on $memory\data[181]$443 ($dff) from module fifo (D = \wdata, Q = \data[181]).
+Adding EN signal on $memory\data[180]$441 ($dff) from module fifo (D = \wdata, Q = \data[180]).
+Adding EN signal on $memory\data[17]$115 ($dff) from module fifo (D = \wdata, Q = \data[17]).
+Adding EN signal on $memory\data[179]$439 ($dff) from module fifo (D = \wdata, Q = \data[179]).
+Adding EN signal on $memory\data[178]$437 ($dff) from module fifo (D = \wdata, Q = \data[178]).
+Adding EN signal on $memory\data[177]$435 ($dff) from module fifo (D = \wdata, Q = \data[177]).
+Adding EN signal on $memory\data[176]$433 ($dff) from module fifo (D = \wdata, Q = \data[176]).
+Adding EN signal on $memory\data[175]$431 ($dff) from module fifo (D = \wdata, Q = \data[175]).
+Adding EN signal on $memory\data[174]$429 ($dff) from module fifo (D = \wdata, Q = \data[174]).
+Adding EN signal on $memory\data[173]$427 ($dff) from module fifo (D = \wdata, Q = \data[173]).
+Adding EN signal on $memory\data[172]$425 ($dff) from module fifo (D = \wdata, Q = \data[172]).
+Adding EN signal on $memory\data[171]$423 ($dff) from module fifo (D = \wdata, Q = \data[171]).
+Adding EN signal on $memory\data[170]$421 ($dff) from module fifo (D = \wdata, Q = \data[170]).
+Adding EN signal on $memory\data[16]$113 ($dff) from module fifo (D = \wdata, Q = \data[16]).
+Adding EN signal on $memory\data[169]$419 ($dff) from module fifo (D = \wdata, Q = \data[169]).
+Adding EN signal on $memory\data[168]$417 ($dff) from module fifo (D = \wdata, Q = \data[168]).
+Adding EN signal on $memory\data[167]$415 ($dff) from module fifo (D = \wdata, Q = \data[167]).
+Adding EN signal on $memory\data[166]$413 ($dff) from module fifo (D = \wdata, Q = \data[166]).
+Adding EN signal on $memory\data[165]$411 ($dff) from module fifo (D = \wdata, Q = \data[165]).
+Adding EN signal on $memory\data[164]$409 ($dff) from module fifo (D = \wdata, Q = \data[164]).
+Adding EN signal on $memory\data[163]$407 ($dff) from module fifo (D = \wdata, Q = \data[163]).
+Adding EN signal on $memory\data[162]$405 ($dff) from module fifo (D = \wdata, Q = \data[162]).
+Adding EN signal on $memory\data[161]$403 ($dff) from module fifo (D = \wdata, Q = \data[161]).
+Adding EN signal on $memory\data[160]$401 ($dff) from module fifo (D = \wdata, Q = \data[160]).
+Adding EN signal on $memory\data[15]$111 ($dff) from module fifo (D = \wdata, Q = \data[15]).
+Adding EN signal on $memory\data[159]$399 ($dff) from module fifo (D = \wdata, Q = \data[159]).
+Adding EN signal on $memory\data[158]$397 ($dff) from module fifo (D = \wdata, Q = \data[158]).
+Adding EN signal on $memory\data[157]$395 ($dff) from module fifo (D = \wdata, Q = \data[157]).
+Adding EN signal on $memory\data[156]$393 ($dff) from module fifo (D = \wdata, Q = \data[156]).
+Adding EN signal on $memory\data[155]$391 ($dff) from module fifo (D = \wdata, Q = \data[155]).
+Adding EN signal on $memory\data[154]$389 ($dff) from module fifo (D = \wdata, Q = \data[154]).
+Adding EN signal on $memory\data[153]$387 ($dff) from module fifo (D = \wdata, Q = \data[153]).
+Adding EN signal on $memory\data[152]$385 ($dff) from module fifo (D = \wdata, Q = \data[152]).
+Adding EN signal on $memory\data[151]$383 ($dff) from module fifo (D = \wdata, Q = \data[151]).
+Adding EN signal on $memory\data[150]$381 ($dff) from module fifo (D = \wdata, Q = \data[150]).
+Adding EN signal on $memory\data[14]$109 ($dff) from module fifo (D = \wdata, Q = \data[14]).
+Adding EN signal on $memory\data[149]$379 ($dff) from module fifo (D = \wdata, Q = \data[149]).
+Adding EN signal on $memory\data[148]$377 ($dff) from module fifo (D = \wdata, Q = \data[148]).
+Adding EN signal on $memory\data[147]$375 ($dff) from module fifo (D = \wdata, Q = \data[147]).
+Adding EN signal on $memory\data[146]$373 ($dff) from module fifo (D = \wdata, Q = \data[146]).
+Adding EN signal on $memory\data[145]$371 ($dff) from module fifo (D = \wdata, Q = \data[145]).
+Adding EN signal on $memory\data[144]$369 ($dff) from module fifo (D = \wdata, Q = \data[144]).
+Adding EN signal on $memory\data[143]$367 ($dff) from module fifo (D = \wdata, Q = \data[143]).
+Adding EN signal on $memory\data[142]$365 ($dff) from module fifo (D = \wdata, Q = \data[142]).
+Adding EN signal on $memory\data[141]$363 ($dff) from module fifo (D = \wdata, Q = \data[141]).
+Adding EN signal on $memory\data[140]$361 ($dff) from module fifo (D = \wdata, Q = \data[140]).
+Adding EN signal on $memory\data[13]$107 ($dff) from module fifo (D = \wdata, Q = \data[13]).
+Adding EN signal on $memory\data[139]$359 ($dff) from module fifo (D = \wdata, Q = \data[139]).
+Adding EN signal on $memory\data[138]$357 ($dff) from module fifo (D = \wdata, Q = \data[138]).
+Adding EN signal on $memory\data[137]$355 ($dff) from module fifo (D = \wdata, Q = \data[137]).
+Adding EN signal on $memory\data[136]$353 ($dff) from module fifo (D = \wdata, Q = \data[136]).
+Adding EN signal on $memory\data[135]$351 ($dff) from module fifo (D = \wdata, Q = \data[135]).
+Adding EN signal on $memory\data[134]$349 ($dff) from module fifo (D = \wdata, Q = \data[134]).
+Adding EN signal on $memory\data[133]$347 ($dff) from module fifo (D = \wdata, Q = \data[133]).
+Adding EN signal on $memory\data[132]$345 ($dff) from module fifo (D = \wdata, Q = \data[132]).
+Adding EN signal on $memory\data[131]$343 ($dff) from module fifo (D = \wdata, Q = \data[131]).
+Adding EN signal on $memory\data[130]$341 ($dff) from module fifo (D = \wdata, Q = \data[130]).
+Adding EN signal on $memory\data[12]$105 ($dff) from module fifo (D = \wdata, Q = \data[12]).
+Adding EN signal on $memory\data[129]$339 ($dff) from module fifo (D = \wdata, Q = \data[129]).
+Adding EN signal on $memory\data[128]$337 ($dff) from module fifo (D = \wdata, Q = \data[128]).
+Adding EN signal on $memory\data[127]$335 ($dff) from module fifo (D = \wdata, Q = \data[127]).
+Adding EN signal on $memory\data[126]$333 ($dff) from module fifo (D = \wdata, Q = \data[126]).
+Adding EN signal on $memory\data[125]$331 ($dff) from module fifo (D = \wdata, Q = \data[125]).
+Adding EN signal on $memory\data[124]$329 ($dff) from module fifo (D = \wdata, Q = \data[124]).
+Adding EN signal on $memory\data[123]$327 ($dff) from module fifo (D = \wdata, Q = \data[123]).
+Adding EN signal on $memory\data[122]$325 ($dff) from module fifo (D = \wdata, Q = \data[122]).
+Adding EN signal on $memory\data[121]$323 ($dff) from module fifo (D = \wdata, Q = \data[121]).
+Adding EN signal on $memory\data[120]$321 ($dff) from module fifo (D = \wdata, Q = \data[120]).
+Adding EN signal on $memory\data[11]$103 ($dff) from module fifo (D = \wdata, Q = \data[11]).
+Adding EN signal on $memory\data[119]$319 ($dff) from module fifo (D = \wdata, Q = \data[119]).
+Adding EN signal on $memory\data[118]$317 ($dff) from module fifo (D = \wdata, Q = \data[118]).
+Adding EN signal on $memory\data[117]$315 ($dff) from module fifo (D = \wdata, Q = \data[117]).
+Adding EN signal on $memory\data[116]$313 ($dff) from module fifo (D = \wdata, Q = \data[116]).
+Adding EN signal on $memory\data[115]$311 ($dff) from module fifo (D = \wdata, Q = \data[115]).
+Adding EN signal on $memory\data[114]$309 ($dff) from module fifo (D = \wdata, Q = \data[114]).
+Adding EN signal on $memory\data[113]$307 ($dff) from module fifo (D = \wdata, Q = \data[113]).
+Adding EN signal on $memory\data[112]$305 ($dff) from module fifo (D = \wdata, Q = \data[112]).
+Adding EN signal on $memory\data[111]$303 ($dff) from module fifo (D = \wdata, Q = \data[111]).
+Adding EN signal on $memory\data[110]$301 ($dff) from module fifo (D = \wdata, Q = \data[110]).
+Adding EN signal on $memory\data[10]$101 ($dff) from module fifo (D = \wdata, Q = \data[10]).
+Adding EN signal on $memory\data[109]$299 ($dff) from module fifo (D = \wdata, Q = \data[109]).
+Adding EN signal on $memory\data[108]$297 ($dff) from module fifo (D = \wdata, Q = \data[108]).
+Adding EN signal on $memory\data[107]$295 ($dff) from module fifo (D = \wdata, Q = \data[107]).
+Adding EN signal on $memory\data[106]$293 ($dff) from module fifo (D = \wdata, Q = \data[106]).
+Adding EN signal on $memory\data[105]$291 ($dff) from module fifo (D = \wdata, Q = \data[105]).
+Adding EN signal on $memory\data[104]$289 ($dff) from module fifo (D = \wdata, Q = \data[104]).
+Adding EN signal on $memory\data[103]$287 ($dff) from module fifo (D = \wdata, Q = \data[103]).
+Adding EN signal on $memory\data[102]$285 ($dff) from module fifo (D = \wdata, Q = \data[102]).
+Adding EN signal on $memory\data[101]$283 ($dff) from module fifo (D = \wdata, Q = \data[101]).
+Adding EN signal on $memory\data[100]$281 ($dff) from module fifo (D = \wdata, Q = \data[100]).
+Adding EN signal on $memory\data[0]$81 ($dff) from module fifo (D = \wdata, Q = \data[0]).
+
+2.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Finding unused cells or wires in module \fifo..
+Removed 256 unused cells and 258 unused wires.
+<suppressed ~257 debug messages>
+
+2.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+Optimizing module fifo.
+<suppressed ~1 debug messages>
+
+2.19.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fifo..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~258 debug messages>
+
+2.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+  Optimizing cells in module \fifo.
+Performed a total of 0 changes.
+
+2.19.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+Finding identical cells in module `\fifo'.
+Removed a total of 0 cells.
+
+2.19.22. Executing OPT_SHARE pass.
+
+2.19.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Finding unused cells or wires in module \fifo..
+
+2.19.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+Optimizing module fifo.
+
+2.19.26. Finished fast OPT passes. (There is nothing left to do.)
+
+2.20. Executing TECHMAP pass (map to technology primitives).
+
+2.20.1. Executing Verilog-2005 frontend: /Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/yosys/share/techmap.v
+Parsing Verilog input from `/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/yosys/share/techmap.v' to AST representation.
+verilog frontend filename /Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/yosys/share/techmap.v
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `\$connect'.
+Generating RTLIL representation for module `\$input_port'.
+Successfully finished Verilog frontend.
+
+2.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod$d2fa05d38998afabc6d4f34471305d0af4b8b2df\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $adffe.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001001 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001001 for cells of type $lcu.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $or.
+Using template $paramod$c3cd1564c35d873179656addd6052d7ea8b6d991\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $eq.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001000 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~1538 debug messages>
+
+2.21. Executing OPT pass (performing simple optimizations).
+
+2.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+<suppressed ~83 debug messages>
+Optimizing module fifo.
+<suppressed ~42 debug messages>
+
+2.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+<suppressed ~27 debug messages>
+Finding identical cells in module `\fifo'.
+<suppressed ~3 debug messages>
+Removed a total of 10 cells.
+
+2.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Finding unused cells or wires in module \fifo..
+Removed 15 unused cells and 104 unused wires.
+<suppressed ~17 debug messages>
+
+2.21.5. Finished fast OPT passes.
+
+2.22. Executing ABC pass (technology mapping using ABC).
+
+2.22.1. Extracting gate netlist of module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000' to `<abc-temp-dir>/input.blif'..
+
+2.22.1.1. Executed ABC.
+Extracted 38 gates and 47 wires to a netlist network with 8 inputs and 8 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: 
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library /var/folders/vl/8_m4zzrj56gdd_zqbdrdy7dh0000gn/T/yosys-abc-GI57Ie/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+2.22.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        1
+ABC RESULTS:            ANDNOT cells:        8
+ABC RESULTS:              NAND cells:        7
+ABC RESULTS:               NOR cells:        1
+ABC RESULTS:                OR cells:        2
+ABC RESULTS:             ORNOT cells:        1
+ABC RESULTS:               XOR cells:        7
+ABC RESULTS:        internal signals:       31
+ABC RESULTS:           input signals:        8
+ABC RESULTS:          output signals:        8
+Removing temp directory.
+
+2.22.2. Extracting gate netlist of module `\fifo' to `<abc-temp-dir>/input.blif'..
+
+2.22.2.1. Executed ABC.
+Extracted 2664 gates and 4739 wires to a netlist network with 2075 inputs and 274 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: 
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library /var/folders/vl/8_m4zzrj56gdd_zqbdrdy7dh0000gn/T/yosys-abc-GI57Ie/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+2.22.2.2. Re-integrating ABC results.
+ABC RESULTS:            ANDNOT cells:      273
+ABC RESULTS:               MUX cells:     2040
+ABC RESULTS:              NAND cells:        4
+ABC RESULTS:               NOR cells:        5
+ABC RESULTS:               NOT cells:        8
+ABC RESULTS:                OR cells:      298
+ABC RESULTS:             ORNOT cells:       14
+ABC RESULTS:              XNOR cells:        1
+ABC RESULTS:               XOR cells:       16
+ABC RESULTS:        internal signals:     2390
+ABC RESULTS:           input signals:     2075
+ABC RESULTS:          output signals:      274
+Removing temp directory.
+Removing global temp directory.
+
+2.23. Executing OPT pass (performing simple optimizations).
+
+2.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000.
+Optimizing module fifo.
+<suppressed ~1016 debug messages>
+
+2.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000'.
+Finding identical cells in module `\fifo'.
+Removed a total of 0 cells.
+
+2.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000..
+Finding unused cells or wires in module \fifo..
+Removed 7 unused cells and 2972 unused wires.
+<suppressed ~9 debug messages>
+
+2.23.5. Finished fast OPT passes.
+
+2.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fifo'. Setting top module to fifo.
+
+2.24.1. Analyzing design hierarchy..
+Top module:  \fifo
+Used module:     $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000
+
+2.24.2. Analyzing design hierarchy..
+Top module:  \fifo
+Used module:     $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000
+Removed 0 unused modules.
+
+2.25. Printing statistics.
+
+=== $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       31 wires
+       38 wire bits
+        4 public wires
+       11 public wire bits
+        4 ports
+       11 port bits
+       35 cells
+        8   $_ANDNOT_
+        1   $_AND_
+        8   $_DFFE_PP0P_
+        7   $_NAND_
+        1   $_NOR_
+        1   $_ORNOT_
+        2   $_OR_
+        7   $_XOR_
+
+=== fifo ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     2903 wires
+     4754 wire bits
+      265 public wires
+     2093 public wire bits
+        7 ports
+       29 port bits
+     4717 cells
+      273   $_ANDNOT_
+        9   $_DFFE_PP0P_
+     2048   $_DFFE_PP_
+        8   $_DFF_P_
+     2040   $_MUX_
+        4   $_NAND_
+        5   $_NOR_
+        1   $_NOT_
+       14   $_ORNOT_
+      298   $_OR_
+        1   $_XNOR_
+       16   $_XOR_
+        2 submodules
+        2   $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+     4787 fifo
+       35 $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000
+
+        +----------Count including submodules.
+        | 
+     2965 wires
+     4830 wire bits
+      273 public wires
+     2115 public wire bits
+       15 ports
+       51 port bits
+        - memories
+        - memory bits
+        - processes
+     4787 cells
+      289   $_ANDNOT_
+        2   $_AND_
+       25   $_DFFE_PP0P_
+     2048   $_DFFE_PP_
+        8   $_DFF_P_
+     2040   $_MUX_
+       18   $_NAND_
+        7   $_NOR_
+        1   $_NOT_
+       16   $_ORNOT_
+      302   $_OR_
+        1   $_XNOR_
+       30   $_XOR_
+        2 submodules
+        2   $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000
+
+2.26. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000...
+Checking module fifo...
+Found and reported 0 problems.
+
+3. Executing EDIF backend.
+
+4. Generating Graphviz representation of design.
+Writing dot description to `demo.dot'.
+Dumping module fifo to page 1.
+Exec: dot -Tpng 'demo.dot' > 'demo.png.new' && mv 'demo.png.new' 'demo.png'
+ERROR: Shell command failed!
