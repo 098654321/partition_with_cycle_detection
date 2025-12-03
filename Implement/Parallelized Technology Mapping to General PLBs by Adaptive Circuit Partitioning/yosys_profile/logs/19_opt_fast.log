@@ -1,0 +1,42 @@
+[00000.000000] 
+[00000.000009]  /----------------------------------------------------------------------------\
+[00000.000009]  |  yosys -- Yosys Open SYnthesis Suite                                       |
+[00000.000010]  |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+[00000.000010]  |  Distributed under an ISC-like license, type "license" to see terms        |
+[00000.000010]  \----------------------------------------------------------------------------/
+[00000.000011]  Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+[00000.000370] 
+[00000.000373] -- Running command `read_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"; opt -fast; write_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"' --
+[00000.000378] 
+[00000.000380] 1. Executing JSON frontend.
+[00003.814504] Importing module top from JSON tree.
+[00005.701068] 
+[00005.701073] 2. Executing OPT pass (performing simple optimizations).
+[00005.701112] 
+[00005.701113] 2.1. Executing OPT_EXPR pass (perform const folding).
+[00005.701863] Optimizing module top.
+[00006.695119] 
+[00006.695124] 2.2. Executing OPT_MERGE pass (detect identical cells).
+[00006.695332] Finding identical cells in module `\top'.
+[00006.848981] Removed a total of 0 cells.
+[00006.848990] 
+[00006.848992] 2.3. Executing OPT_DFF pass (perform DFF optimizations).
+[00007.522881] 
+[00007.522885] 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+[00007.523480] Finding unused cells or wires in module \top..
+[00008.710439] 
+[00008.710442] 2.5. Finished fast OPT passes.
+[00008.831883] 
+[00008.831886] 3. Executing JSON backend.
+
+End of script. Logfile hash: 43e282762c, CPU: user 10.88s system 0.65s, MEM: 4004.23 MB peak
+Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+Time spent:
+   50%     2 calls    5.699 sec read_json
+   22%     2 calls    2.532 sec write_json
+    8%     1 calls    0.994 sec opt_expr
+    8%     1 calls    0.970 sec opt_clean
+    5%     1 calls    0.674 sec opt_dff
+    1%     1 calls    0.218 sec opt
+    1%     1 calls    0.154 sec opt_merge
+    0%     1 calls    0.108 sec id_gc

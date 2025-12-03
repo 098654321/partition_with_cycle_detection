@@ -1,0 +1,34 @@
+[00000.000000] 
+[00000.000040]  /----------------------------------------------------------------------------\
+[00000.000040]  |  yosys -- Yosys Open SYnthesis Suite                                       |
+[00000.000041]  |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+[00000.000041]  |  Distributed under an ISC-like license, type "license" to see terms        |
+[00000.000042]  \----------------------------------------------------------------------------/
+[00000.000042]  Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+[00000.001691] 
+[00000.001694] -- Running command `read_verilog "data/hypotenuse/hyp.v"; hierarchy -check -top top; write_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"' --
+[00000.001911] 
+[00000.001912] 1. Executing Verilog-2005 frontend: data/hypotenuse/hyp.v
+[00000.001991] Parsing Verilog input from `data/hypotenuse/hyp.v' to AST representation.
+[00000.001992] verilog frontend filename data/hypotenuse/hyp.v
+[00001.410764] Generating RTLIL representation for module `\top'.
+[00008.672701] Successfully finished Verilog frontend.
+[00008.673085] 
+[00008.673088] 2. Executing HIERARCHY pass (managing design hierarchy).
+[00008.673640] 
+[00008.673641] 2.1. Analyzing design hierarchy..
+[00008.673752] Top module:  \top
+[00008.727545] 
+[00008.727547] 2.2. Analyzing design hierarchy..
+[00008.727574] Top module:  \top
+[00008.740309] Removed 0 unused modules.
+[00008.814899] 
+[00008.814903] 3. Executing JSON backend.
+
+End of script. Logfile hash: bd44774b75, CPU: user 11.91s system 0.54s, MEM: 2005.97 MB peak
+Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+Time spent:
+   70%     2 calls    8.647 sec read_verilog
+   28%     2 calls    3.466 sec write_json
+    1%     1 calls    0.139 sec hierarchy
+    0%     0 calls    0.000 sec id_gc

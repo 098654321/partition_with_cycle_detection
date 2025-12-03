@@ -1,0 +1,88 @@
+[00000.000000] 
+[00000.000009]  /----------------------------------------------------------------------------\
+[00000.000010]  |  yosys -- Yosys Open SYnthesis Suite                                       |
+[00000.000011]  |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+[00000.000011]  |  Distributed under an ISC-like license, type "license" to see terms        |
+[00000.000011]  \----------------------------------------------------------------------------/
+[00000.000012]  Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+[00000.000376] 
+[00000.000379] -- Running command `read_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"; opt -nodffe -nosdff; write_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"' --
+[00000.000385] 
+[00000.000387] 1. Executing JSON frontend.
+[00004.386961] Importing module top from JSON tree.
+[00006.596361] 
+[00006.596367] 2. Executing OPT pass (performing simple optimizations).
+[00006.596406] 
+[00006.596407] 2.1. Executing OPT_EXPR pass (perform const folding).
+[00006.598087] Optimizing module top.
+[00007.794177] 
+[00007.794182] 2.2. Executing OPT_MERGE pass (detect identical cells).
+[00007.794398] Finding identical cells in module `\top'.
+[00008.254030] <suppressed ~189510 debug messages>
+[00008.254052] Removed a total of 63170 cells.
+[00008.254060] 
+[00008.254062] 2.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+[00008.260014] Running muxtree optimizer on module \top..
+[00008.260017]   Creating internal representation of mux trees.
+[00008.386956]   No muxes found in this module.
+[00008.387786] Removed 0 multiplexer ports.
+[00008.387794] 
+[00008.387796] 2.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[00008.393482]   Optimizing cells in module \top.
+[00008.578628] Performed a total of 0 changes.
+[00008.578636] 
+[00008.578638] 2.5. Executing OPT_MERGE pass (detect identical cells).
+[00008.578883] Finding identical cells in module `\top'.
+[00008.778005] Removed a total of 0 cells.
+[00008.778016] 
+[00008.778017] 2.6. Executing OPT_DFF pass (perform DFF optimizations).
+[00009.601781] 
+[00009.601786] 2.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+[00009.602653] Finding unused cells or wires in module \top..
+[00010.928306] Removed 0 unused cells and 63170 unused wires.
+[00011.263918] <suppressed ~1 debug messages>
+[00011.263927] 
+[00011.263929] 2.8. Executing OPT_EXPR pass (perform const folding).
+[00011.264165] Optimizing module top.
+[00012.295186] 
+[00012.295192] 2.9. Rerunning OPT passes. (Maybe there is more to do..)
+[00012.295209] 
+[00012.295210] 2.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+[00012.295221] Running muxtree optimizer on module \top..
+[00012.295222]   Creating internal representation of mux trees.
+[00012.384518]   No muxes found in this module.
+[00012.385324] Removed 0 multiplexer ports.
+[00012.385331] 
+[00012.385332] 2.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[00012.385359]   Optimizing cells in module \top.
+[00012.573707] Performed a total of 0 changes.
+[00012.573714] 
+[00012.573715] 2.12. Executing OPT_MERGE pass (detect identical cells).
+[00012.573951] Finding identical cells in module `\top'.
+[00012.728563] Removed a total of 0 cells.
+[00012.728571] 
+[00012.728572] 2.13. Executing OPT_DFF pass (perform DFF optimizations).
+[00013.514940] 
+[00013.514947] 2.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+[00013.515440] Finding unused cells or wires in module \top..
+[00014.525227] 
+[00014.525233] 2.15. Executing OPT_EXPR pass (perform const folding).
+[00014.525463] Optimizing module top.
+[00015.790639] 
+[00015.790645] 2.16. Finished fast OPT passes. (There is nothing left to do.)
+[00015.949294] 
+[00015.949299] 3. Executing JSON backend.
+
+End of script. Logfile hash: f231f627a8, CPU: user 17.86s system 0.75s, MEM: 4544.48 MB peak
+Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+Time spent:
+   35%     2 calls    6.572 sec read_json
+   17%     3 calls    3.262 sec opt_expr
+   14%     2 calls    2.672 sec opt_clean
+   13%     2 calls    2.515 sec write_json
+    8%     2 calls    1.607 sec opt_dff
+    4%     3 calls    0.813 sec opt_merge
+    2%     2 calls    0.378 sec opt_reduce
+    1%     1 calls    0.232 sec opt
+    1%     2 calls    0.223 sec opt_muxtree
+    0%     1 calls    0.144 sec id_gc

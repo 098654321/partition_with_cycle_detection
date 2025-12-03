@@ -1,0 +1,63 @@
+[00000.000000] 
+[00000.000008]  /----------------------------------------------------------------------------\
+[00000.000009]  |  yosys -- Yosys Open SYnthesis Suite                                       |
+[00000.000009]  |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+[00000.000010]  |  Distributed under an ISC-like license, type "license" to see terms        |
+[00000.000010]  \----------------------------------------------------------------------------/
+[00000.000011]  Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+[00000.000377] 
+[00000.000379] -- Running command `read_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"; techmap; write_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"' --
+[00000.000385] 
+[00000.000387] 1. Executing JSON frontend.
+[00003.919426] Importing module top from JSON tree.
+[00005.803800] 
+[00005.803805] 2. Executing TECHMAP pass (map to technology primitives).
+[00005.804689] 
+[00005.804691] 2.1. Executing Verilog-2005 frontend: /Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/yosys/share/techmap.v
+[00005.804707] Parsing Verilog input from `/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/yosys/share/techmap.v' to AST representation.
+[00005.804708] verilog frontend filename /Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/yosys/share/techmap.v
+[00005.807975] Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+[00005.807997] Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+[00005.808002] Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+[00005.808005] Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+[00005.808009] Generating RTLIL representation for module `\_90_simplemap_various'.
+[00005.808012] Generating RTLIL representation for module `\_90_simplemap_registers'.
+[00005.808014] Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+[00005.809228] Generating RTLIL representation for module `\_90_shift_shiftx'.
+[00005.809594] Generating RTLIL representation for module `\_90_fa'.
+[00005.809707] Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+[00005.810282] Generating RTLIL representation for module `\_90_alu'.
+[00005.810492] Generating RTLIL representation for module `\_90_macc'.
+[00005.810495] Generating RTLIL representation for module `\_90_alumacc'.
+[00005.810498] Generating RTLIL representation for module `\$__div_mod_u'.
+[00005.810678] Generating RTLIL representation for module `\$__div_mod_trunc'.
+[00005.810938] Generating RTLIL representation for module `\_90_div'.
+[00005.810986] Generating RTLIL representation for module `\_90_mod'.
+[00005.811028] Generating RTLIL representation for module `\$__div_mod_floor'.
+[00005.811351] Generating RTLIL representation for module `\_90_divfloor'.
+[00005.811393] Generating RTLIL representation for module `\_90_modfloor'.
+[00005.811433] Generating RTLIL representation for module `\_90_pow'.
+[00005.811464] Generating RTLIL representation for module `\_90_pmux'.
+[00005.811658] Generating RTLIL representation for module `\_90_demux'.
+[00005.812514] Generating RTLIL representation for module `\_90_lut'.
+[00005.812518] Generating RTLIL representation for module `\$connect'.
+[00005.812536] Generating RTLIL representation for module `\$input_port'.
+[00005.812598] Successfully finished Verilog frontend.
+[00005.812607] 
+[00005.812607] 2.2. Continuing TECHMAP pass.
+[00005.929490] Using extmapper simplemap for cells of type $or.
+[00005.929892] Using extmapper simplemap for cells of type $not.
+[00006.109978] Using extmapper simplemap for cells of type $and.
+[00006.445664] No more expansions possible.
+[00006.449299] <suppressed ~420589 debug messages>
+[00006.453684] 
+[00006.453686] 3. Executing JSON backend.
+
+End of script. Logfile hash: 3d98d5dcba, CPU: user 7.69s system 0.56s, MEM: 3660.50 MB peak
+Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+Time spent:
+   70%     2 calls    5.722 sec read_json
+   22%     2 calls    1.806 sec write_json
+    7%     1 calls    0.635 sec techmap
+    0%     1 calls    0.007 sec read_verilog
+    0%     0 calls    0.000 sec id_gc

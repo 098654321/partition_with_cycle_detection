@@ -1,0 +1,24 @@
+[00000.000000] 
+[00000.000010]  /----------------------------------------------------------------------------\
+[00000.000010]  |  yosys -- Yosys Open SYnthesis Suite                                       |
+[00000.000011]  |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+[00000.000011]  |  Distributed under an ISC-like license, type "license" to see terms        |
+[00000.000011]  \----------------------------------------------------------------------------/
+[00000.000012]  Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+[00000.000381] 
+[00000.000384] -- Running command `read_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"; peepopt; write_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"' --
+[00000.000390] 
+[00000.000392] 1. Executing JSON frontend.
+[00003.860588] Importing module top from JSON tree.
+[00005.841276] 
+[00005.841281] 2. Executing PEEPOPT pass (run peephole optimizers).
+[00006.221956] 
+[00006.221960] 3. Executing JSON backend.
+
+End of script. Logfile hash: 99ef25aedc, CPU: user 8.27s system 0.64s, MEM: 3773.00 MB peak
+Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+Time spent:
+   66%     2 calls    5.839 sec read_json
+   29%     2 calls    2.542 sec write_json
+    4%     1 calls    0.375 sec peepopt
+    0%     0 calls    0.000 sec id_gc

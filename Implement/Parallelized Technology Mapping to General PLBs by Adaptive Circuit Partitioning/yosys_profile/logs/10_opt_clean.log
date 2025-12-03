@@ -1,0 +1,25 @@
+[00000.000000] 
+[00000.000009]  /----------------------------------------------------------------------------\
+[00000.000010]  |  yosys -- Yosys Open SYnthesis Suite                                       |
+[00000.000010]  |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+[00000.000010]  |  Distributed under an ISC-like license, type "license" to see terms        |
+[00000.000011]  \----------------------------------------------------------------------------/
+[00000.000011]  Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+[00000.000374] 
+[00000.000377] -- Running command `read_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"; opt_clean; write_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"' --
+[00000.000382] 
+[00000.000384] 1. Executing JSON frontend.
+[00003.818558] Importing module top from JSON tree.
+[00005.736363] 
+[00005.736372] 2. Executing OPT_CLEAN pass (remove unused cells and wires).
+[00005.738170] Finding unused cells or wires in module \top..
+[00006.873725] 
+[00006.873731] 3. Executing JSON backend.
+
+End of script. Logfile hash: c1759f1542, CPU: user 8.96s system 0.63s, MEM: 3750.19 MB peak
+Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+Time spent:
+   60%     2 calls    5.733 sec read_json
+   27%     2 calls    2.555 sec write_json
+   10%     1 calls    1.014 sec opt_clean
+    1%     1 calls    0.109 sec id_gc

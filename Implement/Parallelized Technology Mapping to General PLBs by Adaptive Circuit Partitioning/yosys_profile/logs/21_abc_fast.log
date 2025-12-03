@@ -1,0 +1,55 @@
+[00000.000000] 
+[00000.000009]  /----------------------------------------------------------------------------\
+[00000.000009]  |  yosys -- Yosys Open SYnthesis Suite                                       |
+[00000.000010]  |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+[00000.000010]  |  Distributed under an ISC-like license, type "license" to see terms        |
+[00000.000010]  \----------------------------------------------------------------------------/
+[00000.000011]  Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+[00000.000379] 
+[00000.000382] -- Running command `read_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"; abc -fast; write_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"' --
+[00000.000390] 
+[00000.000391] 1. Executing JSON frontend.
+[00002.962664] Importing module top from JSON tree.
+[00004.235613] 
+[00004.235618] 2. Executing ABC pass (technology mapping using ABC).
+[00004.297796] 
+[00004.297800] 2.1. Extracting gate netlist of module `\top' to `<abc-temp-dir>/input.blif'..
+[00009.089155] 
+[00009.089160] 2.1.1. Executed ABC.
+[00009.089556] Extracted 420512 gates and 420768 wires to a netlist network with 256 inputs and 128 outputs.
+[00009.089558] Running ABC script: <abc-temp-dir>/abc.script
+[00009.089559] ABC: 
+[00009.089559] ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+[00009.089560] ABC: + read_blif <abc-temp-dir>/input.blif 
+[00009.089561] ABC: + read_library /var/folders/vl/8_m4zzrj56gdd_zqbdrdy7dh0000gn/T/yosys-abc-uGLi4n/stdcells.genlib 
+[00009.089562] ABC: + strash 
+[00009.089562] ABC: + dretime 
+[00009.089563] ABC: + map 
+[00009.089563] ABC: + write_blif <abc-temp-dir>/output.blif 
+[00009.331079] 
+[00009.331090] 2.1.2. Re-integrating ABC results.
+[00009.887861] ABC RESULTS:               AND cells:    21691
+[00009.887863] ABC RESULTS:            ANDNOT cells:    57963
+[00009.887864] ABC RESULTS:               MUX cells:      271
+[00009.887865] ABC RESULTS:              NAND cells:    15109
+[00009.887866] ABC RESULTS:               NOR cells:     5730
+[00009.887867] ABC RESULTS:               NOT cells:      677
+[00009.887868] ABC RESULTS:                OR cells:    10164
+[00009.887869] ABC RESULTS:             ORNOT cells:    22387
+[00009.887869] ABC RESULTS:              XNOR cells:     8160
+[00009.887870] ABC RESULTS:               XOR cells:    24599
+[00009.889817] ABC RESULTS:        internal signals:   420384
+[00009.889820] ABC RESULTS:           input signals:      256
+[00009.889820] ABC RESULTS:          output signals:      128
+[00009.900339] Removing temp directory.
+[00009.905375] Removing global temp directory.
+[00009.909536] 
+[00009.909538] 3. Executing JSON backend.
+
+End of script. Logfile hash: f3fd2867be, CPU: user 6.17s system 0.53s, MEM: 3082.17 MB peak
+Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+Time spent:
+   51%     1 calls    5.601 sec abc
+   38%     2 calls    4.233 sec read_json
+    9%     2 calls    1.083 sec write_json
+    0%     0 calls    0.000 sec id_gc

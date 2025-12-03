@@ -1,0 +1,58 @@
+[00000.000000] 
+[00000.000009]  /----------------------------------------------------------------------------\
+[00000.000010]  |  yosys -- Yosys Open SYnthesis Suite                                       |
+[00000.000010]  |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+[00000.000010]  |  Distributed under an ISC-like license, type "license" to see terms        |
+[00000.000011]  \----------------------------------------------------------------------------/
+[00000.000011]  Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+[00000.000372] 
+[00000.000374] -- Running command `read_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"; memory -nomap; write_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"' --
+[00000.000380] 
+[00000.000381] 1. Executing JSON frontend.
+[00003.859410] Importing module top from JSON tree.
+[00005.752737] 
+[00005.752747] 2. Executing MEMORY pass.
+[00005.752804] 
+[00005.752807] 2.1. Executing OPT_MEM pass (optimize memories).
+[00005.767412] Performed a total of 0 transformations.
+[00005.767421] 
+[00005.767422] 2.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+[00006.329871] Performed a total of 0 transformations.
+[00006.416978] 
+[00006.416988] 2.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+[00006.468479] 
+[00006.468482] 2.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+[00006.473887] 
+[00006.473889] 2.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+[00007.120943] 
+[00007.120947] 2.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+[00007.121660] Finding unused cells or wires in module \top..
+[00008.060858] 
+[00008.060862] 2.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+[00008.713618] 
+[00008.713624] 2.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+[00008.721653] Performed a total of 0 transformations.
+[00008.721660] 
+[00008.721661] 2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+[00008.722293] Finding unused cells or wires in module \top..
+[00009.641568] 
+[00009.641573] 2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+[00009.769395] 
+[00009.769400] 3. Executing JSON backend.
+
+End of script. Logfile hash: 4e9c8d00fd, CPU: user 11.77s system 0.67s, MEM: 3967.52 MB peak
+Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+Time spent:
+   46%     2 calls    5.730 sec read_json
+   20%     2 calls    2.552 sec write_json
+   15%     2 calls    1.860 sec opt_clean
+    5%     1 calls    0.652 sec memory_share
+    5%     1 calls    0.649 sec opt_mem_priority
+    5%     1 calls    0.647 sec memory_dff
+    0%     1 calls    0.107 sec id_gc
+    0%     1 calls    0.052 sec opt_mem_feedback
+    0%     1 calls    0.014 sec opt_mem
+    0%     1 calls    0.008 sec opt_mem_widen
+    0%     1 calls    0.008 sec memory_collect
+    0%     1 calls    0.005 sec memory_bmux2rom
+    0%     1 calls    0.000 sec memory

@@ -1,0 +1,25 @@
+[00000.000000] 
+[00000.000008]  /----------------------------------------------------------------------------\
+[00000.000009]  |  yosys -- Yosys Open SYnthesis Suite                                       |
+[00000.000010]  |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+[00000.000010]  |  Distributed under an ISC-like license, type "license" to see terms        |
+[00000.000010]  \----------------------------------------------------------------------------/
+[00000.000011]  Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+[00000.000478] 
+[00000.000481] -- Running command `read_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"; opt_expr; write_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"' --
+[00000.000487] 
+[00000.000488] 1. Executing JSON frontend.
+[00005.223739] Importing module top from JSON tree.
+[00007.752580] 
+[00007.752589] 2. Executing OPT_EXPR pass (perform const folding).
+[00007.753743] Optimizing module top.
+[00009.127322] 
+[00009.127327] 3. Executing JSON backend.
+
+End of script. Logfile hash: 6f910898d7, CPU: user 11.52s system 0.89s, MEM: 4734.55 MB peak
+Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+Time spent:
+   62%     2 calls    7.592 sec read_json
+   26%     2 calls    3.253 sec write_json
+   11%     1 calls    1.370 sec opt_expr
+    0%     0 calls    0.000 sec id_gc

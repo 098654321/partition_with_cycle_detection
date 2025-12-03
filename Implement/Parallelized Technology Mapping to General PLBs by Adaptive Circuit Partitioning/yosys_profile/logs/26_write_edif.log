@@ -1,0 +1,24 @@
+[00000.000000] 
+[00000.000009]  /----------------------------------------------------------------------------\
+[00000.000010]  |  yosys -- Yosys Open SYnthesis Suite                                       |
+[00000.000010]  |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+[00000.000010]  |  Distributed under an ISC-like license, type "license" to see terms        |
+[00000.000011]  \----------------------------------------------------------------------------/
+[00000.000012]  Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+[00000.000379] 
+[00000.000382] -- Running command `read_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"; write_edif "data/hypotenuse/Hypotenuse.edif"; write_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"' --
+[00000.000387] 
+[00000.000389] 1. Executing JSON frontend.
+[00001.053716] Importing module top from JSON tree.
+[00001.409903] 
+[00001.409908] 2. Executing EDIF backend.
+[00002.598210] 
+[00002.598214] 3. Executing JSON backend.
+
+End of script. Logfile hash: b650d2b9f3, CPU: user 2.96s system 0.21s, MEM: 1165.05 MB peak
+Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+Time spent:
+   44%     2 calls    1.409 sec read_json
+   37%     2 calls    1.180 sec write_edif
+   17%     2 calls    0.543 sec write_json
+    0%     0 calls    0.000 sec id_gc

@@ -1,0 +1,45 @@
+[00000.000000] 
+[00000.000009]  /----------------------------------------------------------------------------\
+[00000.000010]  |  yosys -- Yosys Open SYnthesis Suite                                       |
+[00000.000010]  |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+[00000.000010]  |  Distributed under an ISC-like license, type "license" to see terms        |
+[00000.000011]  \----------------------------------------------------------------------------/
+[00000.000012]  Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+[00000.000371] 
+[00000.000374] -- Running command `read_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"; opt -fast; write_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"' --
+[00000.000380] 
+[00000.000381] 1. Executing JSON frontend.
+[00001.937123] Importing module top from JSON tree.
+[00002.724760] 
+[00002.724764] 2. Executing OPT pass (performing simple optimizations).
+[00002.724792] 
+[00002.724793] 2.1. Executing OPT_EXPR pass (perform const folding).
+[00002.725820] Optimizing module top.
+[00003.105732] <suppressed ~11 debug messages>
+[00003.105781] 
+[00003.105783] 2.2. Executing OPT_MERGE pass (detect identical cells).
+[00003.105979] Finding identical cells in module `\top'.
+[00003.150854] Removed a total of 0 cells.
+[00003.150864] 
+[00003.150866] 2.3. Executing OPT_DFF pass (perform DFF optimizations).
+[00003.470310] 
+[00003.470314] 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+[00003.470929] Finding unused cells or wires in module \top..
+[00004.044575] Removed 0 unused cells and 420768 unused wires.
+[00004.114254] <suppressed ~214208 debug messages>
+[00004.157644] 
+[00004.157647] 2.5. Finished fast OPT passes.
+[00004.247814] 
+[00004.247818] 3. Executing JSON backend.
+
+End of script. Logfile hash: d577a045b3, CPU: user 4.52s system 0.29s, MEM: 2061.25 MB peak
+Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+Time spent:
+   57%     2 calls    2.723 sec read_json
+   13%     1 calls    0.644 sec opt_clean
+   11%     2 calls    0.537 sec write_json
+    7%     1 calls    0.381 sec opt_expr
+    6%     1 calls    0.319 sec opt_dff
+    1%     1 calls    0.084 sec id_gc
+    0%     1 calls    0.045 sec opt_merge
+    0%     1 calls    0.044 sec opt

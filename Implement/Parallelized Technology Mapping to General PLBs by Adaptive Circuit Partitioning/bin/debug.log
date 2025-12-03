@@ -1,0 +1,576 @@
+[2025-12-03 10:12:00.728] INFO: Testing json2module() ...
+[2025-12-03 10:12:00.728] INFO: module name = fifo
+{port name = clk
+direction: input
+bits: 4 
+}{port name = count
+direction: output
+bits: 22 23 24 25 26 27 28 29 30 
+}{port name = rdata
+direction: output
+bits: 14 15 16 17 18 19 20 21 
+}{port name = ren
+direction: input
+bits: 3 
+}{port name = rst
+direction: input
+bits: 5 
+}{port name = wdata
+direction: input
+bits: 6 7 8 9 10 11 12 13 
+}{port name = wen
+direction: input
+bits: 2 
+}{cell name = $add$../../../yosys/demo.v:66$17
+hide_name: 1
+type: $add
+port direction: 
+    name: input
+    name: input
+    name: output
+connections: 
+    name: 22
+    name: 23
+    name: 24
+    name: 25
+    name: 26
+    name: 27
+    name: 28
+    name: 29
+    name: 30
+    name: 1
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 31
+    name: 32
+    name: 33
+    name: 34
+    name: 35
+    name: 36
+    name: 37
+    name: 38
+    name: 39
+    name: 40
+    name: 41
+    name: 42
+    name: 43
+    name: 44
+    name: 45
+    name: 46
+    name: 47
+    name: 48
+    name: 49
+    name: 50
+    name: 51
+    name: 52
+    name: 53
+    name: 54
+    name: 55
+    name: 56
+    name: 57
+    name: 58
+    name: 59
+    name: 60
+    name: 61
+    name: 62
+
+}{cell name = $auto$proc_memwr.cc:45:proc_memwr$55
+hide_name: 1
+type: $memwr_v2
+port direction: 
+    name: input
+    name: input
+    name: input
+    name: input
+connections: 
+    name: 63
+    name: 64
+    name: 65
+    name: 66
+    name: 67
+    name: 68
+    name: 69
+    name: 70
+    name: 4
+    name: 71
+    name: 72
+    name: 73
+    name: 74
+    name: 75
+    name: 76
+    name: 77
+    name: 78
+    name: 79
+    name: 80
+    name: 81
+    name: 82
+    name: 83
+    name: 84
+    name: 85
+    name: 86
+
+}{cell name = $logic_and$../../../yosys/demo.v:65$16
+hide_name: 1
+type: $logic_and
+port direction: 
+    name: input
+    name: input
+    name: output
+connections: 
+    name: 2
+    name: 87
+    name: 88
+
+}{cell name = $logic_and$../../../yosys/demo.v:67$19
+hide_name: 1
+type: $logic_and
+port direction: 
+    name: input
+    name: input
+    name: output
+connections: 
+    name: 3
+    name: 89
+    name: 90
+
+}{cell name = $logic_not$../../../yosys/demo.v:65$15
+hide_name: 1
+type: $logic_not
+port direction: 
+    name: input
+    name: output
+connections: 
+    name: 3
+    name: 87
+
+}{cell name = $logic_not$../../../yosys/demo.v:67$18
+hide_name: 1
+type: $logic_not
+port direction: 
+    name: input
+    name: output
+connections: 
+    name: 2
+    name: 89
+
+}{cell name = $memrd$\data$../../../yosys/demo.v:39$13
+hide_name: 1
+type: $memrd
+port direction: 
+    name: input
+    name: input
+    name: output
+    name: input
+connections: 
+    name: 91
+    name: 92
+    name: 93
+    name: 94
+    name: 95
+    name: 96
+    name: 97
+    name: 98
+    name: x
+    name: 99
+    name: 100
+    name: 101
+    name: 102
+    name: 103
+    name: 104
+    name: 105
+    name: 106
+    name: x
+
+}{cell name = $procdff$47
+hide_name: 1
+type: $adff
+port direction: 
+    name: input
+    name: input
+    name: input
+    name: output
+connections: 
+    name: 5
+    name: 4
+    name: 107
+    name: 108
+    name: 109
+    name: 110
+    name: 111
+    name: 112
+    name: 113
+    name: 114
+    name: 115
+    name: 22
+    name: 23
+    name: 24
+    name: 25
+    name: 26
+    name: 27
+    name: 28
+    name: 29
+    name: 30
+
+}{cell name = $procdff$48
+hide_name: 1
+type: $dff
+port direction: 
+    name: input
+    name: input
+    name: output
+connections: 
+    name: 4
+    name: 99
+    name: 100
+    name: 101
+    name: 102
+    name: 103
+    name: 104
+    name: 105
+    name: 106
+    name: 14
+    name: 15
+    name: 16
+    name: 17
+    name: 18
+    name: 19
+    name: 20
+    name: 21
+
+}{cell name = $procmux$26
+hide_name: 1
+type: $mux
+port direction: 
+    name: input
+    name: input
+    name: input
+    name: output
+connections: 
+    name: 22
+    name: 23
+    name: 24
+    name: 25
+    name: 26
+    name: 27
+    name: 28
+    name: 29
+    name: 30
+    name: 116
+    name: 117
+    name: 118
+    name: 119
+    name: 120
+    name: 121
+    name: 122
+    name: 123
+    name: 124
+    name: 90
+    name: 125
+    name: 126
+    name: 127
+    name: 128
+    name: 129
+    name: 130
+    name: 131
+    name: 132
+    name: 133
+
+}{cell name = $procmux$29
+hide_name: 1
+type: $mux
+port direction: 
+    name: input
+    name: input
+    name: input
+    name: output
+connections: 
+    name: 125
+    name: 126
+    name: 127
+    name: 128
+    name: 129
+    name: 130
+    name: 131
+    name: 132
+    name: 133
+    name: 31
+    name: 32
+    name: 33
+    name: 34
+    name: 35
+    name: 36
+    name: 37
+    name: 38
+    name: 39
+    name: 88
+    name: 107
+    name: 108
+    name: 109
+    name: 110
+    name: 111
+    name: 112
+    name: 113
+    name: 114
+    name: 115
+
+}{cell name = $procmux$32
+hide_name: 1
+type: $mux
+port direction: 
+    name: input
+    name: input
+    name: input
+    name: output
+connections: 
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 1
+    name: 1
+    name: 1
+    name: 1
+    name: 1
+    name: 1
+    name: 1
+    name: 1
+    name: 2
+    name: 79
+    name: 80
+    name: 81
+    name: 82
+    name: 83
+    name: 84
+    name: 85
+    name: 86
+
+}{cell name = $procmux$35
+hide_name: 1
+type: $mux
+port direction: 
+    name: input
+    name: input
+    name: input
+    name: output
+connections: 
+    name: x
+    name: x
+    name: x
+    name: x
+    name: x
+    name: x
+    name: x
+    name: x
+    name: 6
+    name: 7
+    name: 8
+    name: 9
+    name: 10
+    name: 11
+    name: 12
+    name: 13
+    name: 2
+    name: 71
+    name: 72
+    name: 73
+    name: 74
+    name: 75
+    name: 76
+    name: 77
+    name: 78
+
+}{cell name = $procmux$38
+hide_name: 1
+type: $mux
+port direction: 
+    name: input
+    name: input
+    name: input
+    name: output
+connections: 
+    name: x
+    name: x
+    name: x
+    name: x
+    name: x
+    name: x
+    name: x
+    name: x
+    name: 134
+    name: 135
+    name: 136
+    name: 137
+    name: 138
+    name: 139
+    name: 140
+    name: 141
+    name: 2
+    name: 63
+    name: 64
+    name: 65
+    name: 66
+    name: 67
+    name: 68
+    name: 69
+    name: 70
+
+}{cell name = $sub$../../../yosys/demo.v:68$20
+hide_name: 1
+type: $sub
+port direction: 
+    name: input
+    name: input
+    name: output
+connections: 
+    name: 22
+    name: 23
+    name: 24
+    name: 25
+    name: 26
+    name: 27
+    name: 28
+    name: 29
+    name: 30
+    name: 1
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 0
+    name: 116
+    name: 117
+    name: 118
+    name: 119
+    name: 120
+    name: 121
+    name: 122
+    name: 123
+    name: 124
+    name: 142
+    name: 143
+    name: 144
+    name: 145
+    name: 146
+    name: 147
+    name: 148
+    name: 149
+    name: 150
+    name: 151
+    name: 152
+    name: 153
+    name: 154
+    name: 155
+    name: 156
+    name: 157
+    name: 158
+    name: 159
+    name: 160
+    name: 161
+    name: 162
+    name: 163
+    name: 164
+
+}{cell name = fifo_reader
+hide_name: 0
+type: $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000
+port direction: 
+    name: output
+    name: input
+    name: input
+    name: input
+connections: 
+    name: 91
+    name: 92
+    name: 93
+    name: 94
+    name: 95
+    name: 96
+    name: 97
+    name: 98
+    name: 4
+    name: 3
+    name: 5
+
+}{cell name = fifo_writer
+hide_name: 0
+type: $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000
+port direction: 
+    name: output
+    name: input
+    name: input
+    name: input
+connections: 
+    name: 134
+    name: 135
+    name: 136
+    name: 137
+    name: 138
+    name: 139
+    name: 140
+    name: 141
+    name: 4
+    name: 2
+    name: 5
+
+}
+
+[2025-12-03 10:12:00.728] INFO: Test end

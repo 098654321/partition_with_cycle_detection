@@ -1,0 +1,46 @@
+[00000.000000] 
+[00000.000009]  /----------------------------------------------------------------------------\
+[00000.000010]  |  yosys -- Yosys Open SYnthesis Suite                                       |
+[00000.000010]  |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+[00000.000011]  |  Distributed under an ISC-like license, type "license" to see terms        |
+[00000.000011]  \----------------------------------------------------------------------------/
+[00000.000012]  Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+[00000.000386] 
+[00000.000389] -- Running command `read_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"; stat; write_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"' --
+[00000.000394] 
+[00000.000396] 1. Executing JSON frontend.
+[00001.048504] Importing module top from JSON tree.
+[00001.411188] 
+[00001.411193] 2. Printing statistics.
+[00001.454243] 
+[00001.454248] === top ===
+[00001.454248] 
+[00001.454255]         +----------Local Count, excluding submodules.
+[00001.454257]         | 
+[00001.454264]    167007 wires
+[00001.454265]    167007 wire bits
+[00001.454266]       384 public wires
+[00001.454267]       384 public wire bits
+[00001.454268]       384 ports
+[00001.454269]       384 port bits
+[00001.454270]    166751 cells
+[00001.454272]     57963   $_ANDNOT_
+[00001.454273]     21691   $_AND_
+[00001.454274]       271   $_MUX_
+[00001.454275]     15109   $_NAND_
+[00001.454276]      5730   $_NOR_
+[00001.454277]       677   $_NOT_
+[00001.454279]     22387   $_ORNOT_
+[00001.454280]     10164   $_OR_
+[00001.454281]      8160   $_XNOR_
+[00001.454283]     24599   $_XOR_
+[00001.454293] 
+[00001.455567] 3. Executing JSON backend.
+
+End of script. Logfile hash: fd235b5563, CPU: user 1.85s system 0.16s, MEM: 1056.97 MB peak
+Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+Time spent:
+   71%     2 calls    1.410 sec read_json
+   26%     2 calls    0.524 sec write_json
+    2%     1 calls    0.043 sec stat
+    0%     0 calls    0.000 sec id_gc

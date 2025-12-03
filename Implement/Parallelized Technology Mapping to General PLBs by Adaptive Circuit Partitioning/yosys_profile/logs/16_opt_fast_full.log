@@ -1,0 +1,42 @@
+[00000.000000] 
+[00000.000008]  /----------------------------------------------------------------------------\
+[00000.000009]  |  yosys -- Yosys Open SYnthesis Suite                                       |
+[00000.000010]  |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+[00000.000010]  |  Distributed under an ISC-like license, type "license" to see terms        |
+[00000.000010]  \----------------------------------------------------------------------------/
+[00000.000011]  Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+[00000.000371] 
+[00000.000374] -- Running command `read_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"; opt -fast -full; write_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"' --
+[00000.000380] 
+[00000.000381] 1. Executing JSON frontend.
+[00003.918336] Importing module top from JSON tree.
+[00005.821823] 
+[00005.821827] 2. Executing OPT pass (performing simple optimizations).
+[00005.821865] 
+[00005.821866] 2.1. Executing OPT_EXPR pass (perform const folding).
+[00005.823358] Optimizing module top.
+[00007.355657] 
+[00007.355662] 2.2. Executing OPT_MERGE pass (detect identical cells).
+[00007.355879] Finding identical cells in module `\top'.
+[00007.516323] Removed a total of 0 cells.
+[00007.516332] 
+[00007.516334] 2.3. Executing OPT_DFF pass (perform DFF optimizations).
+[00008.206304] 
+[00008.206309] 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+[00008.207705] Finding unused cells or wires in module \top..
+[00009.418629] 
+[00009.418634] 2.5. Finished fast OPT passes.
+[00009.539280] 
+[00009.539284] 3. Executing JSON backend.
+
+End of script. Logfile hash: 019cfb5829, CPU: user 11.46s system 0.67s, MEM: 4006.48 MB peak
+Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+Time spent:
+   48%     2 calls    5.753 sec read_json
+   20%     2 calls    2.502 sec write_json
+   12%     1 calls    1.532 sec opt_expr
+    8%     1 calls    0.999 sec opt_clean
+    5%     1 calls    0.690 sec opt_dff
+    1%     1 calls    0.214 sec opt
+    1%     1 calls    0.161 sec opt_merge
+    0%     1 calls    0.107 sec id_gc

@@ -1,0 +1,61 @@
+[00000.000000] 
+[00000.000009]  /----------------------------------------------------------------------------\
+[00000.000009]  |  yosys -- Yosys Open SYnthesis Suite                                       |
+[00000.000010]  |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+[00000.000010]  |  Distributed under an ISC-like license, type "license" to see terms        |
+[00000.000011]  \----------------------------------------------------------------------------/
+[00000.000011]  Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+[00000.000370] 
+[00000.000373] -- Running command `read_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"; opt; write_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"' --
+[00000.000378] 
+[00000.000379] 1. Executing JSON frontend.
+[00003.829253] Importing module top from JSON tree.
+[00005.720697] 
+[00005.720702] 2. Executing OPT pass (performing simple optimizations).
+[00005.720739] 
+[00005.720740] 2.1. Executing OPT_EXPR pass (perform const folding).
+[00005.721284] Optimizing module top.
+[00006.713209] 
+[00006.713214] 2.2. Executing OPT_MERGE pass (detect identical cells).
+[00006.713423] Finding identical cells in module `\top'.
+[00006.863407] Removed a total of 0 cells.
+[00006.863416] 
+[00006.863418] 2.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+[00006.863440] Running muxtree optimizer on module \top..
+[00006.863442]   Creating internal representation of mux trees.
+[00006.959145]   No muxes found in this module.
+[00006.960003] Removed 0 multiplexer ports.
+[00006.960010] 
+[00006.960011] 2.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+[00006.960032]   Optimizing cells in module \top.
+[00007.125647] Performed a total of 0 changes.
+[00007.125656] 
+[00007.125658] 2.5. Executing OPT_MERGE pass (detect identical cells).
+[00007.125902] Finding identical cells in module `\top'.
+[00007.271652] Removed a total of 0 cells.
+[00007.271660] 
+[00007.271662] 2.6. Executing OPT_DFF pass (perform DFF optimizations).
+[00007.960142] 
+[00007.960146] 2.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+[00007.960666] Finding unused cells or wires in module \top..
+[00008.904724] 
+[00008.904728] 2.8. Executing OPT_EXPR pass (perform const folding).
+[00008.904949] Optimizing module top.
+[00010.117306] 
+[00010.117310] 2.9. Finished fast OPT passes. (There is nothing left to do.)
+[00010.238612] 
+[00010.238616] 3. Executing JSON backend.
+
+End of script. Logfile hash: 92cd400e0f, CPU: user 12.28s system 0.67s, MEM: 4002.31 MB peak
+Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+Time spent:
+   44%     2 calls    5.720 sec read_json
+   20%     2 calls    2.571 sec write_json
+   15%     2 calls    2.002 sec opt_expr
+    7%     1 calls    0.944 sec opt_clean
+    5%     1 calls    0.688 sec opt_dff
+    2%     2 calls    0.296 sec opt_merge
+    1%     1 calls    0.200 sec opt
+    1%     1 calls    0.166 sec opt_reduce
+    0%     1 calls    0.108 sec id_gc
+    0%     1 calls    0.097 sec opt_muxtree

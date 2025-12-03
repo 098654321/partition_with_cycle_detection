@@ -1,0 +1,32 @@
+[00000.000000] 
+[00000.000009]  /----------------------------------------------------------------------------\
+[00000.000010]  |  yosys -- Yosys Open SYnthesis Suite                                       |
+[00000.000010]  |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+[00000.000011]  |  Distributed under an ISC-like license, type "license" to see terms        |
+[00000.000011]  \----------------------------------------------------------------------------/
+[00000.000012]  Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+[00000.000402] 
+[00000.000405] -- Running command `read_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"; abc -fast -lut 6; write_json "/Users/jiaheng/FDU_files/Tao_group/partition_with_cycle_detection/Implement/Parallelized Technology Mapping to General PLBs by Adaptive Circuit Partitioning/yosys_profile/current.json"' --
+[00000.000410] 
+[00000.000412] 1. Executing JSON frontend.
+[00004.057859] Importing module top from JSON tree.
+[00006.113469] 
+[00006.113473] 2. Executing ABC pass (technology mapping using ABC).
+[00006.172236] 
+[00006.172241] 2.1. Extracting gate netlist of module `\top' to `<abc-temp-dir>/input.blif'..
+[00006.211477] Don't call ABC as there is nothing to map.
+[00006.211481] 
+[00006.211482] 2.1.1. Executed ABC.
+[00006.211495] Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+[00006.211497] Removing temp directory.
+[00006.211708] Removing global temp directory.
+[00006.215029] 
+[00006.215031] 3. Executing JSON backend.
+
+End of script. Logfile hash: 8ff31ffd4d, CPU: user 8.19s system 0.69s, MEM: 3664.05 MB peak
+Yosys 0.59+134 (git sha1 34fa8a4ff, clang++ 17.0.0 -fPIC -O3)
+Time spent:
+   68%     2 calls    6.007 sec read_json
+   29%     2 calls    2.615 sec write_json
+    1%     1 calls    0.098 sec abc
+    0%     0 calls    0.000 sec id_gc
