@@ -1,0 +1,7 @@
+{
+    errdata = "\27[1msrc/verilog2hgraph/reader.cc:265:1: \27[0m\27[0;1;35mwarning: \27[0m\27[1munused label 'global' [-Wunused-label]\27[0m\
+  265 | global:;global::log_debug(\27[0;32m\"end comparison\\n\"\27[0m);\27[0m\
+      | \27[0;1;32m^~~~~~~\
+\27[0m1 warning generated.\
+"
+}

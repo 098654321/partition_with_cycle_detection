@@ -1,0 +1,10 @@
+{
+    errdata = "\27[1msrc/verilog2hgraph/reader.cc:97:39: \27[0m\27[0;1;35mwarning: \27[0m\27[1mmoving a temporary object prevents copy elision [-Wpessimizing-move]\27[0m\
+   97 |         _module._cells.emplace(cname, std::move(std::make_shared<Cell>(c)));\27[0m\
+      | \27[0;1;32m                                      ^\
+\27[0m\27[1msrc/verilog2hgraph/reader.cc:97:39: \27[0m\27[0;1;36mnote: \27[0mremove std::move call here\27[0m\
+   97 |         _module._cells.emplace(cname, std::move(std::make_shared<Cell>(c)));\27[0m\
+      | \27[0;1;32m                                      ^~~~~~~~~~                         ~\
+\27[0m1 warning generated.\
+"
+}

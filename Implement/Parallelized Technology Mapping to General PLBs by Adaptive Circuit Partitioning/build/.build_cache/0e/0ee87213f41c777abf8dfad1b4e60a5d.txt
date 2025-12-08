@@ -1,0 +1,8 @@
+{
+    errdata = "\27[1msrc/verilog2hgraph/config.cc:89:73: \27[0m\27[0;1;35mwarning: \27[0m\27[1mfield '_weight' will be initialized after field '_vertices' [-Wreorder-ctor]\27[0m\
+   89 | Edge::Edge(\27[0;34mconst\27[0m std::vector<std::size_t>& vertices, std::size_t e_id): _weight(\27[0;32m1.0\27[0m), _vertices(vertices), _e_id(e_id) {}\27[0m\
+      | \27[0;1;32m                                                                        ^~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~\
+\27[0m      | \27[0;32m                                                                        _vertices(vertices) _e_id(e_id)    _weight(1.0)\
+\27[0m1 warning generated.\
+"
+}

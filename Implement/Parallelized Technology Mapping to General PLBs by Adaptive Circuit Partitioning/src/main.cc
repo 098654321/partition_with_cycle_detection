@@ -2,11 +2,12 @@
 #include "./global/debug.hh"
 #include <exception>
 #include <iostream>
+#include <exception>
 
 
 int main(int argc, char* argv[]) {
     global::init_log("./debug.log");
-    global::set_log_level(global::LogLevel::INFO);
+    global::set_log_level(global::LogLevel::DEBUG);
 
 try{
     // 检查参数数量
@@ -20,8 +21,11 @@ try{
     std::string filename = argv[1];
 
     auto reader = parser::Reader();
-    reader.json2module(filename);
+
+    auto module = reader.json2module(filename);
     reader.test_read();
+    auto hg = reader.modue2hgraph();
+    reader.test_hgraph(hg);
     
     return 0;
 }

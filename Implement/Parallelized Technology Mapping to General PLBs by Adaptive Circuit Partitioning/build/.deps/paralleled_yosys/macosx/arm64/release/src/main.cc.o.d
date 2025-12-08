@@ -1,4 +1,7 @@
 {
+    depfiles_format = "gcc",
+    depfiles = "build/.objs/paralleled_yosys/macosx/arm64/release/src/__cpp_main.cc.cc:   src/main.cc src/./verilog2hgraph/reader.hh   src/./verilog2hgraph/config.hh src/./global/debug.hh\
+",
     values = {
         "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
         {
@@ -16,8 +19,5 @@
     },
     files = {
         "src/main.cc"
-    },
-    depfiles_format = "gcc",
-    depfiles = "build/.objs/paralleled_yosys/macosx/arm64/release/src/__cpp_main.cc.cc:   src/main.cc src/./verilog2hgraph/reader.hh   src/./verilog2hgraph/config.hh src/./global/debug.hh\
-"
+    }
 }

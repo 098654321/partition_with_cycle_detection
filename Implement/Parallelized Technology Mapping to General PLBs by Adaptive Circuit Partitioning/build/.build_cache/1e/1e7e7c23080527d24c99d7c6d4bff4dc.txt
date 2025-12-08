@@ -1,0 +1,7 @@
+{
+    errdata = "\27[1msrc/verilog2hgraph/reader.cc:302:1: \27[0m\27[0;1;35mwarning: \27[0m\27[1mnon-void function does not return a value [-Wreturn-type]\27[0m\
+  302 | }\27[0m\
+      | \27[0;1;32m^\
+\27[0m1 warning generated.\
+"
+}
