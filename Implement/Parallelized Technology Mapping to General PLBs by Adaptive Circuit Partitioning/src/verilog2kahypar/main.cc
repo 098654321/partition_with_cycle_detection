@@ -1,12 +1,12 @@
-#include "./verilog2kahypar/reader.hh"
-#include "./global/debug.hh"
+#include "./reader.hh"
+#include "../global/debug.hh"
 #include <exception>
 #include <iostream>
 #include <exception>
 
 
 int main(int argc, char* argv[]) {
-    global::init_log("./debug.log");
+    global::init_log("./debug_read.log");
     global::set_log_level(global::LogLevel::DEBUG);
 
 try{

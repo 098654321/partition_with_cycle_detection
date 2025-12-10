@@ -1,6 +1,6 @@
 #include "reader.hh"
 #include "config.hh"
-#include "json.h"
+#include "../json/json.h"
 #include <cstddef>
 #include <fstream>
 #include <iterator>
@@ -428,7 +428,7 @@ auto Reader::hgraph2hMetis(const HyperGraph& hg, const std::string& filename, st
 
     // write vertex-id to cell-name mapping in the same directory as filename
     try {
-        std::string mapfile = filename + ".vertices.txt";
+        std::string mapfile = filename + ".names";
         std::ofstream mout(mapfile);
         if (mout.good()) {
             for (auto v_id : v_ids) {

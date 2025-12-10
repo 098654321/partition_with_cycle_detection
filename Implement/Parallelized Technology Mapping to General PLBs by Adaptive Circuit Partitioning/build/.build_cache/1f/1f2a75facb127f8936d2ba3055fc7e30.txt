@@ -1,0 +1,7 @@
+{
+    errdata = "\27[1msrc/json/jsoncpp.cpp:115:20: \27[0m\27[0;1;35mwarning: \27[0m\27[1mfunction 'getDecimalPoint' is not needed and will not be emitted [-Wunneeded-internal-declaration]\27[0m\
+  115 | \27[0;34mstatic\27[0m \27[0;34minline\27[0m \27[0;34mchar\27[0m getDecimalPoint() {\27[0m\
+      | \27[0;1;32m                   ^~~~~~~~~~~~~~~\
+\27[0m1 warning generated.\
+"
+}

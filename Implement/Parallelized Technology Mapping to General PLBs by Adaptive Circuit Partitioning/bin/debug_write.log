@@ -1,0 +1,88 @@
+[2025-12-10 22:29:19.585] INFO: partition2verilog start
+[2025-12-10 22:29:19.586] INFO: json=../data/input.json
+[2025-12-10 22:29:19.586] INFO: vertices=../kahypar/run_hmetis.txt.names
+[2025-12-10 22:29:19.586] INFO: part=../kahypar/run_hmetis.txt.part3.epsilon0.03.seed-1.KaHyPar
+[2025-12-10 22:29:19.586] INFO: out_dir=../partitioned_verilog
+[2025-12-10 22:29:19.586] INFO: top=fifo
+[2025-12-10 22:29:19.586] INFO: ports=7
+[2025-12-10 22:29:19.586] INFO: cells=17
+[2025-12-10 22:29:19.586] INFO: vertices_map entries=17
+[2025-12-10 22:29:19.586] INFO: part_map entries=17
+[2025-12-10 22:29:19.586] INFO: parts=3
+[2025-12-10 22:29:19.586] INFO: nets=23
+[2025-12-10 22:29:19.586] DEBUG: net 4 cut
+[2025-12-10 22:29:19.586] DEBUG:   port $procdff$48_CLK width=1 dir=input
+[2025-12-10 22:29:19.586] DEBUG:   port fifo_reader_clk width=1 dir=input
+[2025-12-10 22:29:19.586] DEBUG: net 89 internal
+[2025-12-10 22:29:19.586] DEBUG:   internal wire net_0 width=1
+[2025-12-10 22:29:19.586] DEBUG: net 99,100,101,102,103,104,105,106 internal
+[2025-12-10 22:29:19.586] DEBUG:   internal wire net_1 width=8
+[2025-12-10 22:29:19.586] DEBUG: net 2 cut
+[2025-12-10 22:29:19.586] DEBUG:   port $logic_not$data/demo/demo.v:67$18_A width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG: net 14,15,16,17,18,19,20,21 cut
+[2025-12-10 22:29:19.587] DEBUG:   port $procdff$48_Q width=8 dir=output
+[2025-12-10 22:29:19.587] DEBUG: net 87 cut
+[2025-12-10 22:29:19.587] DEBUG:   port $logic_not$data/demo/demo.v:65$15_Y width=1 dir=output
+[2025-12-10 22:29:19.587] DEBUG: net 5 cut
+[2025-12-10 22:29:19.587] DEBUG:   port fifo_reader_rst width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG: net 90 cut
+[2025-12-10 22:29:19.587] DEBUG:   port $logic_and$data/demo/demo.v:67$19_Y width=1 dir=output
+[2025-12-10 22:29:19.587] DEBUG: net 3 cut
+[2025-12-10 22:29:19.587] DEBUG:   port $logic_and$data/demo/demo.v:67$19_A width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG:   port $logic_not$data/demo/demo.v:65$15_A width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG:   port fifo_reader_en width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG: net 91,92,93,94,95,96,97,98 internal
+[2025-12-10 22:29:19.587] DEBUG:   internal wire net_2 width=8
+[2025-12-10 22:29:19.587] INFO: write ../partitioned_verilog/fifo_part1.v ports=10 cells=6
+[2025-12-10 22:29:19.587] DEBUG: net 71,72,73,74,75,76,77,78 internal
+[2025-12-10 22:29:19.587] DEBUG:   internal wire net_0 width=8
+[2025-12-10 22:29:19.587] DEBUG: net 2 cut
+[2025-12-10 22:29:19.587] DEBUG:   port $procmux$32_S width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG:   port $procmux$35_S width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG:   port $procmux$38_S width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG:   port fifo_writer_en width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG: net 6,7,8,9,10,11,12,13 cut
+[2025-12-10 22:29:19.587] DEBUG:   port $procmux$35_B width=8 dir=input
+[2025-12-10 22:29:19.587] DEBUG: net 63,64,65,66,67,68,69,70 internal
+[2025-12-10 22:29:19.587] DEBUG:   internal wire net_1 width=8
+[2025-12-10 22:29:19.587] DEBUG: net 5 cut
+[2025-12-10 22:29:19.587] DEBUG:   port fifo_writer_rst width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG: net 79,80,81,82,83,84,85,86 internal
+[2025-12-10 22:29:19.587] DEBUG:   internal wire net_2 width=8
+[2025-12-10 22:29:19.587] DEBUG: net 4 cut
+[2025-12-10 22:29:19.587] DEBUG:   port $auto$proc_memwr.cc:45:proc_memwr$55_CLK width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG:   port fifo_writer_clk width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG: net 134,135,136,137,138,139,140,141 internal
+[2025-12-10 22:29:19.587] DEBUG:   internal wire net_3 width=8
+[2025-12-10 22:29:19.587] INFO: write ../partitioned_verilog/fifo_part0.v ports=8 cells=5
+[2025-12-10 22:29:19.587] DEBUG: net 22,23,24,25,26,27,28,29,30 cut
+[2025-12-10 22:29:19.587] DEBUG:   port $add$data/demo/demo.v:66$17_A width=9 dir=input
+[2025-12-10 22:29:19.587] DEBUG:   port $procdff$47_Q width=9 dir=output
+[2025-12-10 22:29:19.587] DEBUG:   port $procmux$26_A width=9 dir=input
+[2025-12-10 22:29:19.587] DEBUG:   port $sub$data/demo/demo.v:68$20_A width=9 dir=input
+[2025-12-10 22:29:19.587] DEBUG: net 31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62 internal
+[2025-12-10 22:29:19.587] DEBUG:   internal wire net_0 width=32
+[2025-12-10 22:29:19.587] DEBUG: net 4 cut
+[2025-12-10 22:29:19.587] DEBUG:   port $procdff$47_CLK width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG: net 2 cut
+[2025-12-10 22:29:19.587] DEBUG:   port $logic_and$data/demo/demo.v:65$16_A width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG: net 116,117,118,119,120,121,122,123,124 internal
+[2025-12-10 22:29:19.587] DEBUG:   internal wire net_1 width=9
+[2025-12-10 22:29:19.587] DEBUG: net 31,32,33,34,35,36,37,38,39 internal
+[2025-12-10 22:29:19.587] DEBUG:   internal wire net_2 width=9
+[2025-12-10 22:29:19.587] DEBUG: net 87 cut
+[2025-12-10 22:29:19.587] DEBUG:   port $logic_and$data/demo/demo.v:65$16_B width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG: net 88 internal
+[2025-12-10 22:29:19.587] DEBUG:   internal wire net_3 width=1
+[2025-12-10 22:29:19.587] DEBUG: net 107,108,109,110,111,112,113,114,115 internal
+[2025-12-10 22:29:19.587] DEBUG:   internal wire net_4 width=9
+[2025-12-10 22:29:19.587] DEBUG: net 125,126,127,128,129,130,131,132,133 internal
+[2025-12-10 22:29:19.587] DEBUG:   internal wire net_5 width=9
+[2025-12-10 22:29:19.587] DEBUG: net 5 cut
+[2025-12-10 22:29:19.587] DEBUG:   port $procdff$47_ARST width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG: net 90 cut
+[2025-12-10 22:29:19.587] DEBUG:   port $procmux$26_S width=1 dir=input
+[2025-12-10 22:29:19.587] DEBUG: net 116,117,118,119,120,121,122,123,124,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164 internal
+[2025-12-10 22:29:19.587] DEBUG:   internal wire net_6 width=32
+[2025-12-10 22:29:19.587] INFO: write ../partitioned_verilog/fifo_part2.v ports=9 cells=6
+[2025-12-10 22:29:19.587] INFO: partition2verilog done

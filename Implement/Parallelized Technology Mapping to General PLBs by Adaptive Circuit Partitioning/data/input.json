@@ -5,7 +5,7 @@
       "attributes": {
         "dynports": "00000000000000000000000000000001",
         "hdlname": "addr_gen",
-        "src": "../../../yosys/demo.v:2.1-21.10"
+        "src": "data/demo/demo.v:2.1-21.10"
       },
       "parameter_default_values": {
         "MAX_DATA": "00000000000000000000000100000000"
@@ -29,7 +29,7 @@
         }
       },
       "cells": {
-        "$add$../../../yosys/demo.v:19$24": {
+        "$add$data/demo/demo.v:19$24": {
           "hide_name": 1,
           "type": "$add",
           "parameters": {
@@ -40,7 +40,7 @@
             "Y_WIDTH": "00000000000000000000000000100000"
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:19.13-19.21"
+            "src": "data/demo/demo.v:19.13-19.21"
           },
           "port_directions": {
             "A": "input",
@@ -53,7 +53,7 @@
             "Y": [ 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44 ]
           }
         },
-        "$eq$../../../yosys/demo.v:16$23": {
+        "$eq$data/demo/demo.v:16$23": {
           "hide_name": 1,
           "type": "$eq",
           "parameters": {
@@ -64,7 +64,7 @@
             "Y_WIDTH": "00000000000000000000000000000001"
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:16.8-16.32"
+            "src": "data/demo/demo.v:16.8-16.32"
           },
           "port_directions": {
             "A": "input",
@@ -87,7 +87,7 @@
             "WIDTH": "00000000000000000000000000001000"
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:12.2-20.6"
+            "src": "data/demo/demo.v:12.2-20.6"
           },
           "port_directions": {
             "ARST": "input",
@@ -110,7 +110,7 @@
           },
           "attributes": {
             "full_case": "00000000000000000000000000000001",
-            "src": "../../../yosys/demo.v:16.8-16.32|../../../yosys/demo.v:16.4-19.22"
+            "src": "data/demo/demo.v:16.8-16.32|data/demo/demo.v:16.4-19.22"
           },
           "port_directions": {
             "A": "input",
@@ -132,7 +132,7 @@
             "WIDTH": "00000000000000000000000000001000"
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:15.12-15.14|../../../yosys/demo.v:15.8-20.6"
+            "src": "data/demo/demo.v:15.12-15.14|data/demo/demo.v:15.8-20.6"
           },
           "port_directions": {
             "A": "input",
@@ -153,22 +153,22 @@
           "hide_name": 1,
           "bits": [ 46, 47, 48, 49, 50, 51, 52, 53 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:12.2-20.6"
+            "src": "data/demo/demo.v:12.2-20.6"
           }
         },
-        "$add$../../../yosys/demo.v:19$24_Y": {
+        "$add$data/demo/demo.v:19$24_Y": {
           "hide_name": 1,
           "bits": [ 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:19.13-19.21",
+            "src": "data/demo/demo.v:19.13-19.21",
             "unused_bits": "8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31"
           }
         },
-        "$eq$../../../yosys/demo.v:16$23_Y": {
+        "$eq$data/demo/demo.v:16$23_Y": {
           "hide_name": 1,
           "bits": [ 45 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:16.8-16.32"
+            "src": "data/demo/demo.v:16.8-16.32"
           }
         },
         "$procmux$41_Y": {
@@ -182,28 +182,28 @@
           "bits": [ 5, 6, 7, 8, 9, 10, 11, 12 ],
           "attributes": {
             "init": "00000000",
-            "src": "../../../yosys/demo.v:6.26-6.30"
+            "src": "data/demo/demo.v:6.26-6.30"
           }
         },
         "clk": {
           "hide_name": 0,
           "bits": [ 3 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:5.15-5.18"
+            "src": "data/demo/demo.v:5.15-5.18"
           }
         },
         "en": {
           "hide_name": 0,
           "bits": [ 2 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:5.11-5.13"
+            "src": "data/demo/demo.v:5.11-5.13"
           }
         },
         "rst": {
           "hide_name": 0,
           "bits": [ 4 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:5.20-5.23"
+            "src": "data/demo/demo.v:5.20-5.23"
           }
         }
       }
@@ -212,7 +212,7 @@
       "attributes": {
         "dynports": "00000000000000000000000000000001",
         "top": "00000000000000000000000000000001",
-        "src": "../../../yosys/demo.v:24.1-71.10"
+        "src": "data/demo/demo.v:24.1-71.10"
       },
       "parameter_default_values": {
         "MAX_DATA": "00000000000000000000000100000000"
@@ -248,7 +248,7 @@
         }
       },
       "cells": {
-        "$add$../../../yosys/demo.v:66$17": {
+        "$add$data/demo/demo.v:66$17": {
           "hide_name": 1,
           "type": "$add",
           "parameters": {
@@ -259,7 +259,7 @@
             "Y_WIDTH": "00000000000000000000000000100000"
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:66.13-66.22"
+            "src": "data/demo/demo.v:66.13-66.22"
           },
           "port_directions": {
             "A": "input",
@@ -285,7 +285,7 @@
             "WIDTH": "00000000000000000000000000001000"
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:38.4-38.24"
+            "src": "data/demo/demo.v:38.4-38.24"
           },
           "port_directions": {
             "ADDR": "input",
@@ -300,7 +300,7 @@
             "EN": [ 79, 80, 81, 82, 83, 84, 85, 86 ]
           }
         },
-        "$logic_and$../../../yosys/demo.v:65$16": {
+        "$logic_and$data/demo/demo.v:65$16": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -311,7 +311,7 @@
             "Y_WIDTH": "00000000000000000000000000000001"
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:65.12-65.23"
+            "src": "data/demo/demo.v:65.12-65.23"
           },
           "port_directions": {
             "A": "input",
@@ -324,7 +324,7 @@
             "Y": [ 88 ]
           }
         },
-        "$logic_and$../../../yosys/demo.v:67$19": {
+        "$logic_and$data/demo/demo.v:67$19": {
           "hide_name": 1,
           "type": "$logic_and",
           "parameters": {
@@ -335,7 +335,7 @@
             "Y_WIDTH": "00000000000000000000000000000001"
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:67.12-67.23"
+            "src": "data/demo/demo.v:67.12-67.23"
           },
           "port_directions": {
             "A": "input",
@@ -348,7 +348,7 @@
             "Y": [ 90 ]
           }
         },
-        "$logic_not$../../../yosys/demo.v:65$15": {
+        "$logic_not$data/demo/demo.v:65$15": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -357,7 +357,7 @@
             "Y_WIDTH": "00000000000000000000000000000001"
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:65.19-65.23"
+            "src": "data/demo/demo.v:65.19-65.23"
           },
           "port_directions": {
             "A": "input",
@@ -368,7 +368,7 @@
             "Y": [ 87 ]
           }
         },
-        "$logic_not$../../../yosys/demo.v:67$18": {
+        "$logic_not$data/demo/demo.v:67$18": {
           "hide_name": 1,
           "type": "$logic_not",
           "parameters": {
@@ -377,7 +377,7 @@
             "Y_WIDTH": "00000000000000000000000000000001"
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:67.19-67.23"
+            "src": "data/demo/demo.v:67.19-67.23"
           },
           "port_directions": {
             "A": "input",
@@ -388,7 +388,7 @@
             "Y": [ 89 ]
           }
         },
-        "$memrd$\\data$../../../yosys/demo.v:39$13": {
+        "$memrd$\\data$data/demo/demo.v:39$13": {
           "hide_name": 1,
           "type": "$memrd",
           "parameters": {
@@ -400,7 +400,7 @@
             "WIDTH": "00000000000000000000000000001000"
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:39.12-39.16"
+            "src": "data/demo/demo.v:39.12-39.16"
           },
           "port_directions": {
             "ADDR": "input",
@@ -425,7 +425,7 @@
             "WIDTH": "00000000000000000000000000001001"
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:62.2-69.5"
+            "src": "data/demo/demo.v:62.2-69.5"
           },
           "port_directions": {
             "ARST": "input",
@@ -448,7 +448,7 @@
             "WIDTH": "00000000000000000000000000001000"
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:36.2-40.5"
+            "src": "data/demo/demo.v:36.2-40.5"
           },
           "port_directions": {
             "CLK": "input",
@@ -468,7 +468,7 @@
             "WIDTH": "00000000000000000000000000001001"
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:67.12-67.23|../../../yosys/demo.v:67.8-68.23"
+            "src": "data/demo/demo.v:67.12-67.23|data/demo/demo.v:67.8-68.23"
           },
           "port_directions": {
             "A": "input",
@@ -491,7 +491,7 @@
           },
           "attributes": {
             "full_case": "00000000000000000000000000000001",
-            "src": "../../../yosys/demo.v:65.12-65.23|../../../yosys/demo.v:65.8-68.23"
+            "src": "data/demo/demo.v:65.12-65.23|data/demo/demo.v:65.8-68.23"
           },
           "port_directions": {
             "A": "input",
@@ -514,7 +514,7 @@
           },
           "attributes": {
             "full_case": "00000000000000000000000000000001",
-            "src": "../../../yosys/demo.v:37.7-37.10|../../../yosys/demo.v:37.3-38.25"
+            "src": "data/demo/demo.v:37.7-37.10|data/demo/demo.v:37.3-38.25"
           },
           "port_directions": {
             "A": "input",
@@ -537,7 +537,7 @@
           },
           "attributes": {
             "full_case": "00000000000000000000000000000001",
-            "src": "../../../yosys/demo.v:37.7-37.10|../../../yosys/demo.v:37.3-38.25"
+            "src": "data/demo/demo.v:37.7-37.10|data/demo/demo.v:37.3-38.25"
           },
           "port_directions": {
             "A": "input",
@@ -560,7 +560,7 @@
           },
           "attributes": {
             "full_case": "00000000000000000000000000000001",
-            "src": "../../../yosys/demo.v:37.7-37.10|../../../yosys/demo.v:37.3-38.25"
+            "src": "data/demo/demo.v:37.7-37.10|data/demo/demo.v:37.3-38.25"
           },
           "port_directions": {
             "A": "input",
@@ -575,7 +575,7 @@
             "Y": [ 63, 64, 65, 66, 67, 68, 69, 70 ]
           }
         },
-        "$sub$../../../yosys/demo.v:68$20": {
+        "$sub$data/demo/demo.v:68$20": {
           "hide_name": 1,
           "type": "$sub",
           "parameters": {
@@ -586,7 +586,7 @@
             "Y_WIDTH": "00000000000000000000000000100000"
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:68.13-68.22"
+            "src": "data/demo/demo.v:68.13-68.22"
           },
           "port_directions": {
             "A": "input",
@@ -605,7 +605,7 @@
           "parameters": {
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:52.2-57.3"
+            "src": "data/demo/demo.v:52.2-57.3"
           },
           "port_directions": {
             "addr": "output",
@@ -626,7 +626,7 @@
           "parameters": {
           },
           "attributes": {
-            "src": "../../../yosys/demo.v:44.2-49.3"
+            "src": "data/demo/demo.v:44.2-49.3"
           },
           "port_directions": {
             "addr": "output",
@@ -646,7 +646,7 @@
         "data": {
           "hide_name": 0,
           "attributes": {
-            "src": "../../../yosys/demo.v:35.12-35.16"
+            "src": "data/demo/demo.v:35.12-35.16"
           },
           "width": 8,
           "start_offset": 0,
@@ -654,75 +654,75 @@
         }
       },
       "netnames": {
-        "$0$memwr$\\data$../../../yosys/demo.v:38$5_ADDR[7:0]$7": {
+        "$0$memwr$\\data$data/demo/demo.v:38$5_ADDR[7:0]$7": {
           "hide_name": 1,
           "bits": [ 63, 64, 65, 66, 67, 68, 69, 70 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:36.2-40.5"
+            "src": "data/demo/demo.v:36.2-40.5"
           }
         },
-        "$0$memwr$\\data$../../../yosys/demo.v:38$5_DATA[7:0]$8": {
+        "$0$memwr$\\data$data/demo/demo.v:38$5_DATA[7:0]$8": {
           "hide_name": 1,
           "bits": [ 71, 72, 73, 74, 75, 76, 77, 78 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:36.2-40.5"
+            "src": "data/demo/demo.v:36.2-40.5"
           }
         },
-        "$0$memwr$\\data$../../../yosys/demo.v:38$5_EN[7:0]$9": {
+        "$0$memwr$\\data$data/demo/demo.v:38$5_EN[7:0]$9": {
           "hide_name": 1,
           "bits": [ 79, 80, 81, 82, 83, 84, 85, 86 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:36.2-40.5"
+            "src": "data/demo/demo.v:36.2-40.5"
           }
         },
         "$0\\count[8:0]": {
           "hide_name": 1,
           "bits": [ 107, 108, 109, 110, 111, 112, 113, 114, 115 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:62.2-69.5"
+            "src": "data/demo/demo.v:62.2-69.5"
           }
         },
         "$0\\rdata[7:0]": {
           "hide_name": 1,
           "bits": [ 99, 100, 101, 102, 103, 104, 105, 106 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:36.2-40.5"
+            "src": "data/demo/demo.v:36.2-40.5"
           }
         },
-        "$add$../../../yosys/demo.v:66$17_Y": {
+        "$add$data/demo/demo.v:66$17_Y": {
           "hide_name": 1,
           "bits": [ 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:66.13-66.22",
+            "src": "data/demo/demo.v:66.13-66.22",
             "unused_bits": "9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31"
           }
         },
-        "$logic_and$../../../yosys/demo.v:65$16_Y": {
+        "$logic_and$data/demo/demo.v:65$16_Y": {
           "hide_name": 1,
           "bits": [ 88 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:65.12-65.23"
+            "src": "data/demo/demo.v:65.12-65.23"
           }
         },
-        "$logic_and$../../../yosys/demo.v:67$19_Y": {
+        "$logic_and$data/demo/demo.v:67$19_Y": {
           "hide_name": 1,
           "bits": [ 90 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:67.12-67.23"
+            "src": "data/demo/demo.v:67.12-67.23"
           }
         },
-        "$logic_not$../../../yosys/demo.v:65$15_Y": {
+        "$logic_not$data/demo/demo.v:65$15_Y": {
           "hide_name": 1,
           "bits": [ 87 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:65.19-65.23"
+            "src": "data/demo/demo.v:65.19-65.23"
           }
         },
-        "$logic_not$../../../yosys/demo.v:67$18_Y": {
+        "$logic_not$data/demo/demo.v:67$18_Y": {
           "hide_name": 1,
           "bits": [ 89 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:67.19-67.23"
+            "src": "data/demo/demo.v:67.19-67.23"
           }
         },
         "$procmux$26_Y": {
@@ -731,11 +731,11 @@
           "attributes": {
           }
         },
-        "$sub$../../../yosys/demo.v:68$20_Y": {
+        "$sub$data/demo/demo.v:68$20_Y": {
           "hide_name": 1,
           "bits": [ 116, 117, 118, 119, 120, 121, 122, 123, 124, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:68.13-68.22",
+            "src": "data/demo/demo.v:68.13-68.22",
             "unused_bits": "9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31"
           }
         },
@@ -743,7 +743,7 @@
           "hide_name": 0,
           "bits": [ 4 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:27.21-27.24"
+            "src": "data/demo/demo.v:27.21-27.24"
           }
         },
         "count": {
@@ -751,56 +751,56 @@
           "bits": [ 22, 23, 24, 25, 26, 27, 28, 29, 30 ],
           "attributes": {
             "init": "000000000",
-            "src": "../../../yosys/demo.v:30.24-30.29"
+            "src": "data/demo/demo.v:30.24-30.29"
           }
         },
         "raddr": {
           "hide_name": 0,
           "bits": [ 91, 92, 93, 94, 95, 96, 97, 98 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:34.27-34.32"
+            "src": "data/demo/demo.v:34.27-34.32"
           }
         },
         "rdata": {
           "hide_name": 0,
           "bits": [ 14, 15, 16, 17, 18, 19, 20, 21 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:29.19-29.24"
+            "src": "data/demo/demo.v:29.19-29.24"
           }
         },
         "ren": {
           "hide_name": 0,
           "bits": [ 3 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:27.16-27.19"
+            "src": "data/demo/demo.v:27.16-27.19"
           }
         },
         "rst": {
           "hide_name": 0,
           "bits": [ 5 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:27.26-27.29"
+            "src": "data/demo/demo.v:27.26-27.29"
           }
         },
         "waddr": {
           "hide_name": 0,
           "bits": [ 134, 135, 136, 137, 138, 139, 140, 141 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:34.20-34.25"
+            "src": "data/demo/demo.v:34.20-34.25"
           }
         },
         "wdata": {
           "hide_name": 0,
           "bits": [ 6, 7, 8, 9, 10, 11, 12, 13 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:28.14-28.19"
+            "src": "data/demo/demo.v:28.14-28.19"
           }
         },
         "wen": {
           "hide_name": 0,
           "bits": [ 2 ],
           "attributes": {
-            "src": "../../../yosys/demo.v:27.11-27.14"
+            "src": "data/demo/demo.v:27.11-27.14"
           }
         }
       }

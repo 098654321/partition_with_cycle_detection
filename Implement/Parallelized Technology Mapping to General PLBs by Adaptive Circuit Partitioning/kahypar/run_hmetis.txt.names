@@ -1,0 +1,17 @@
+1 $add$data/demo/demo.v:66$17
+2 $auto$proc_memwr.cc:45:proc_memwr$55
+3 $logic_and$data/demo/demo.v:65$16
+4 $logic_and$data/demo/demo.v:67$19
+5 $logic_not$data/demo/demo.v:65$15
+6 $logic_not$data/demo/demo.v:67$18
+7 $memrd$\data$data/demo/demo.v:39$13
+8 $procdff$47
+9 $procdff$48
+10 $procmux$26
+11 $procmux$29
+12 $procmux$32
+13 $procmux$35
+14 $procmux$38
+15 $sub$data/demo/demo.v:68$20
+16 fifo_reader
+17 fifo_writer
