@@ -66,6 +66,9 @@ public:
     ~Vertex() = default;
 
 public:
+    auto set_vid(std::size_t vid) -> void {this->_v_id = vid;}
+
+public:
     auto name() const -> std::string {return this->_name;}
     auto weight() const -> double {return this->_weight;}
     auto v_id() const -> std::size_t {return this->_v_id;}
@@ -86,6 +89,9 @@ class Edge {
 public:
     Edge(std::size_t, const std::map<std::size_t, std::set<std::shared_ptr<Port>>>&);
     ~Edge() = default;
+
+public:
+    auto set_port_info(const std::map<std::size_t, std::set<std::shared_ptr<Port>>>& port_info) -> void {this->_port_info = port_info;}
 
 public:
     auto weight() const -> double {return this->_weight;} 
@@ -115,6 +121,9 @@ public:
     auto vertices() const -> const std::vector<Vertex>&;
     auto edges() const -> const std::vector<Edge>&;
     auto v2e() const -> const std::unordered_map<std::size_t, std::vector<std::size_t>>&;
+    auto vertex_weight(std::size_t v_id) const -> double;
+    auto edge_weight(std::size_t e_id) const -> double;
+    auto vertex_name(std::size_t v_id) const -> std::string;
 
     auto remove_port_in_edge(std::size_t e_id, std::size_t v_id, std::shared_ptr<Port>& port) -> void;
     auto add_port_in_edge(std::size_t e_id, std::size_t v_id, std::shared_ptr<Port>& port) -> void;
@@ -134,4 +143,3 @@ private:
 }
 
 #endif  // CONFIG_HH
-

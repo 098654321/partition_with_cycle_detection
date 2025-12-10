@@ -121,9 +121,20 @@ std::string Vertex::to_string() const {
 
 
 Edge::Edge(std::size_t e_id, const std::map<std::size_t, std::set<std::shared_ptr<Port>>>& port_info)
-    : _e_id(e_id), _weight(1.0), _port_info(port_info)
+    : _e_id(e_id), _port_info(port_info)
 {
-
+    std::size_t min_bitwidth {0};
+    for (auto& [v_id, ports]: this->_port_info) {
+        for (auto& port: ports) {
+            if (min_bitwidth == 0) {
+                min_bitwidth = port->_bits.size();
+            }
+            else {
+                min_bitwidth = std::min(min_bitwidth, port->_bits.size());
+            }
+        }
+    }
+    this->_weight = min_bitwidth;
 }
 
 auto Edge::vertices() const -> std::vector<std::size_t> {
@@ -257,8 +268,8 @@ HyperGraph::HyperGraph(const std::vector<Vertex>& vertices, const std::vector<Ed
         this->_edges.emplace(edge.e_id(), edge);
     }
 
-    // remove module port
     std::map<std::size_t, std::shared_ptr<Port>> module_port{};
+    std::unordered_map<std::size_t, std::size_t> old2new_vid{};
     for (auto& [v_id, vertex]: this->_vertices) {
         if (vertex.cell() == nullptr) {
             auto port = vertex.port_info();
@@ -271,10 +282,35 @@ HyperGraph::HyperGraph(const std::vector<Vertex>& vertices, const std::vector<Ed
     for (auto& [v_id, port]: module_port) {
         this->_vertices.erase(v_id);
     }
-    for (auto& [v_id, port]: module_port) {
-        for (auto& [e_id, edge]: this->_edges) {
+
+    std::vector<std::size_t> old_ids;
+    old_ids.reserve(this->_vertices.size());
+    for (const auto& kv : this->_vertices) old_ids.emplace_back(kv.first);
+    std::sort(old_ids.begin(), old_ids.end());
+
+    std::unordered_map<std::size_t, Vertex> new_vertices{};
+    std::size_t new_vid{0};
+    for (auto old_id : old_ids) {
+        auto vertex = this->_vertices.at(old_id);
+        vertex.set_vid(new_vid);
+        old2new_vid.emplace(old_id, new_vid);
+        new_vertices.emplace(new_vid, vertex);
+        ++new_vid;
+    }
+    this->_vertices = std::move(new_vertices);
+
+    for (auto& [e_id, edge] : this->_edges) {
+        for (auto& [v_id, port] : module_port) {
             edge.remove_port_in_edge(v_id, port);
         }
+        std::map<std::size_t, std::set<std::shared_ptr<Port>>> updated;
+        for (auto& [v_id, ports] : edge.v_port()) {
+            auto it = old2new_vid.find(v_id);
+            if (it != old2new_vid.end()) {
+                updated.emplace(it->second, ports);
+            }
+        }
+        edge.set_port_info(updated);
     }
 
     // create v2e
@@ -307,6 +343,27 @@ std::string HyperGraph::to_string() const {
     return msg;
 }
 
-
+auto HyperGraph::v2e() const -> const std::unordered_map<std::size_t, std::vector<std::size_t>>& {
+    return this->_v2e;
 }
 
+auto HyperGraph::vertex_weight(std::size_t v_id) const -> double {
+    const auto it = this->_vertices.find(v_id);
+    if (it == this->_vertices.end()) throw std::out_of_range("vertex not found");
+    return it->second.weight();
+}
+
+auto HyperGraph::edge_weight(std::size_t e_id) const -> double {
+    const auto it = this->_edges.find(e_id);
+    if (it == this->_edges.end()) throw std::out_of_range("edge not found");
+    return it->second.weight();
+}
+
+auto HyperGraph::vertex_name(std::size_t v_id) const -> std::string {
+    const auto it = this->_vertices.find(v_id);
+    if (it == this->_vertices.end()) throw std::out_of_range("vertex not found");
+    return it->second.name();
+}
+
+
+}

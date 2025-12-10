@@ -1,9 +1,9 @@
 {
     files = {
         "build/.objs/paralleled_yosys/macosx/arm64/release/src/main.cc.o",
-        "build/.objs/paralleled_yosys/macosx/arm64/release/src/verilog2hgraph/jsoncpp.cpp.o",
-        "build/.objs/paralleled_yosys/macosx/arm64/release/src/verilog2hgraph/reader.cc.o",
-        "build/.objs/paralleled_yosys/macosx/arm64/release/src/verilog2hgraph/config.cc.o"
+        "build/.objs/paralleled_yosys/macosx/arm64/release/src/verilog2kahypar/jsoncpp.cpp.o",
+        "build/.objs/paralleled_yosys/macosx/arm64/release/src/verilog2kahypar/reader.cc.o",
+        "build/.objs/paralleled_yosys/macosx/arm64/release/src/verilog2kahypar/config.cc.o"
     },
     values = {
         "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",

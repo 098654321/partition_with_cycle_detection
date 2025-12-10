@@ -122,6 +122,7 @@ Module Reader::json2module(const std::string& filename) {
         _module.emplace_back(build_module(name));
     }
 
+    build_hierarchy();
     return _module.front();
 }
 
@@ -133,8 +134,8 @@ global::log_info("Building hypergraph ...");
    // for extending cell modules 
     std::set<std::string> module_names {};                                      // all module names
     std::unordered_map<std::string, HyperGraph> name2hg{};                      // for all module hg
-    std::unordered_map<std::string, std::unordered_set<std::shared_ptr<Port>>> name2ports{};     // for all module ports
-    std::unordered_map<std::string, std::unordered_set<std::shared_ptr<Cell>>> name2cell{};         // for cell_hg to be extended in module
+    std::unordered_map<std::string, std::set<std::shared_ptr<Port>>> name2ports{};     // for all module ports
+    std::unordered_map<std::string, std::set<std::shared_ptr<Cell>>> name2cell{};         // for cell_hg to be extended in module
 
     // collect all modules
 global::log_debug("collecting modules ...");
@@ -155,14 +156,14 @@ global::log_debug("creating vertices ...");
         for (auto& [name, cell]: mod._cells) {  // using cell
             vertices.emplace_back(name, v_id++, cell);
             if (module_names.find(cell->_type) != module_names.end()) {                  // is a module object
-                auto iter = name2cell.emplace(module_name, std::unordered_set<std::shared_ptr<Cell>>{});
+                auto iter = name2cell.emplace(module_name, std::set<std::shared_ptr<Cell>>{});
                 iter.first->second.emplace(cell);
                 global::log_debug("cell " + name + " is a module cell");
             }
         }
         for (auto& [name, port]: mod._ports) {  // using port
             vertices.emplace_back(name, v_id++, port);
-            auto iter = name2ports.emplace(module_name, std::unordered_set<std::shared_ptr<Port>>{});
+            auto iter = name2ports.emplace(module_name, std::set<std::shared_ptr<Port>>{});
             iter.first->second.emplace(port);
         }
 global::log_debug("totally created " + std::to_string(vertices.size()) + " vertices");
@@ -327,6 +328,177 @@ void Reader::test_hgraph(const std::unordered_map<std::string, HyperGraph>& hg) 
         global::log_debug(module.to_string());
     }
     global::log_debug("Test end");
+}
+
+void Reader::test_hierarchy() {
+    using namespace global;
+    global::log_debug("Testing hierarchy ...");
+    if (_hier_children.empty() && _module.size() > 0) {
+        build_hierarchy();
+    }
+    std::string roots_msg{"roots: "};
+    for (const auto& r : _hier_roots) {
+        roots_msg += r + " ";
+    }
+    global::log_debug(roots_msg);
+
+    for (const auto& m : _module) {
+        global::log_debug(std::string("module ") + m._name + ":");
+        const auto it = _hier_children.find(m._name);
+        if (it == _hier_children.end() || it->second.empty()) {
+            global::log_debug("  children: none");
+        } else {
+            for (const auto& p : it->second) {
+                global::log_debug(std::string("  ") + p.first + " -> " + p.second);
+            }
+        }
+        const auto pit = _hier_parents.find(m._name);
+        if (pit == _hier_parents.end() || pit->second.empty()) {
+            global::log_debug("  parents: none");
+        } else {
+            std::string parents_msg{"  parents: "};
+            for (const auto& par : pit->second) parents_msg += par + " ";
+            global::log_debug(parents_msg);
+        }
+    }
+    global::log_debug("Test end");
+}
+
+auto Reader::hgraph2hMetis(const HyperGraph& hg, const std::string& filename, std::size_t mode) -> void {
+    const auto& v2e = hg.v2e();
+
+    // compact vertex indices: map original v_id -> [1..N]
+    std::vector<std::size_t> v_ids;
+    v_ids.reserve(v2e.size());
+    for (const auto& kv : v2e) v_ids.emplace_back(kv.first);
+    std::sort(v_ids.begin(), v_ids.end());
+    std::unordered_map<std::size_t, std::size_t> vmap; // original -> compact 1-based
+    for (std::size_t i = 0; i < v_ids.size(); ++i) vmap.emplace(v_ids[i], i + 1);
+
+    // invert v2e using compact indices
+    std::unordered_map<std::size_t, std::vector<std::size_t>> e2v;
+    e2v.reserve(v2e.size());
+    for (const auto& [v_id, edges] : v2e) {
+        const auto idx = vmap.at(v_id);
+        for (const auto& e_id : edges) {
+            auto& lst = e2v[e_id];
+            lst.emplace_back(idx);
+        }
+    }
+
+    const std::size_t hyperedge_num = e2v.size();
+    const std::size_t node_num = v_ids.size();
+
+    std::vector<std::size_t> edge_ids;
+    edge_ids.reserve(e2v.size());
+    for (const auto& kv : e2v) edge_ids.emplace_back(kv.first);
+    std::sort(edge_ids.begin(), edge_ids.end());
+
+    std::ofstream out(filename);
+    if (!out.good()) {
+        throw std::runtime_error(std::string("Failed to open hMetis output file: ") + filename);
+    }
+
+    out << hyperedge_num << ' ' << node_num << ' ' << mode << '\n';
+
+    // edges section
+    const bool edge_w = (mode == 1 || mode == 11);
+    for (auto e_id : edge_ids) {
+        if (edge_w) {
+            out << static_cast<long long>(hg.edge_weight(e_id)) << ' ';
+        }
+        auto nodes = e2v.at(e_id);
+        std::sort(nodes.begin(), nodes.end());
+        for (std::size_t i = 0; i < nodes.size(); ++i) {
+            if (i) out << ' ';
+            out << nodes[i];
+        }
+        out << '\n';
+    }
+
+    // vertex weights section
+    const bool vertex_w = (mode == 10 || mode == 11);
+    if (vertex_w) {
+        for (auto v_id : v_ids) {
+            out << static_cast<long long>(hg.vertex_weight(v_id)) << '\n';
+        }
+    }
+
+    out.flush();
+
+    // write vertex-id to cell-name mapping in the same directory as filename
+    try {
+        std::string mapfile = filename + ".vertices.txt";
+        std::ofstream mout(mapfile);
+        if (mout.good()) {
+            for (auto v_id : v_ids) {
+                auto idx = vmap.at(v_id);
+                auto name = hg.vertex_name(v_id);
+                mout << idx << ' ' << name << '\n';
+            }
+            mout.flush();
+        }
+    } catch (...) {
+        // ignore mapping file errors silently
+    }
+}
+
+void Reader::test_hmetis_output(const std::unordered_map<std::string, HyperGraph>& hg, const std::string& filename, std::size_t mode) {
+    using namespace global;
+    global::log_debug("Testing hgraph2hMetis output ...");
+
+    std::string modname = top_module_name();
+    const HyperGraph* target = nullptr;
+    auto it = hg.find(modname);
+    if (it != hg.end()) {
+        target = &it->second;
+    } else if (!hg.empty()) {
+        target = &hg.begin()->second;
+        modname = hg.begin()->first;
+    }
+
+    if (!target) {
+        global::log_info("No hypergraph found to output");
+        return;
+    }
+
+    hgraph2hMetis(*target, filename, mode);
+    global::log_debug(std::string("hMetis file written for module ") + modname + ": " + filename);
+}
+
+auto Reader::build_hierarchy() -> void {
+    _hier_children.clear();
+    _hier_parents.clear();
+    _hier_roots.clear();
+
+    std::unordered_set<std::string> names;
+    for (const auto& m : _module) {
+        names.emplace(m._name);
+    }
+    for (const auto& m : _module) {
+        for (const auto& [cname, cell] : m._cells) {
+            const auto& t = cell->_type;
+            if (names.find(t) != names.end()) {
+                _hier_children[m._name].emplace_back(cname, t);
+                _hier_parents[t].insert(m._name);
+            }
+        }
+    }
+    for (const auto& n : names) {
+        if (_hier_parents[n].empty()) {
+            _hier_roots.emplace_back(n);
+        }
+    }
+}
+
+auto Reader::top_module_name() const -> std::string {
+    if (!_hier_roots.empty()) return _hier_roots.front();
+    if (!_module.empty()) return _module.front()._name;
+    return std::string{};
+}
+
+auto Reader::hierarchy() const -> const std::unordered_map<std::string, std::vector<std::pair<std::string, std::string>>>& {
+    return _hier_children;
 }
 
 

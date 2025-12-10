@@ -1,6 +1,6 @@
-[2025-12-08 15:37:17.662] INFO: Reading json and build ...
-[2025-12-08 15:37:17.664] DEBUG: Testing json2module() ...
-[2025-12-08 15:37:17.664] DEBUG: module name = fifo
+[2025-12-10 12:47:12.371] INFO: Reading json and build ...
+[2025-12-10 12:47:12.373] DEBUG: Testing json2module() ...
+[2025-12-10 12:47:12.374] DEBUG: module name = fifo
 {port name = clk
 direction: input
 bits: 4 
@@ -251,7 +251,7 @@ connections:
 }
 
 
-[2025-12-08 15:37:17.664] DEBUG: module name = $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000
+[2025-12-10 12:47:12.374] DEBUG: module name = $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000
 {port name = addr
 direction: output
 bits: 5 6 7 8 9 10 11 12 
@@ -336,46 +336,46 @@ connections:
 }
 
 
-[2025-12-08 15:37:17.664] DEBUG: Test end
-[2025-12-08 15:37:17.664] INFO: Building hypergraph ...
-[2025-12-08 15:37:17.664] DEBUG: collecting modules ...
-[2025-12-08 15:37:17.664] DEBUG: creating vertices ...
-[2025-12-08 15:37:17.664] DEBUG: cell fifo_reader is a module cell
-[2025-12-08 15:37:17.664] DEBUG: cell fifo_writer is a module cell
-[2025-12-08 15:37:17.664] DEBUG: totally created 24 vertices
-[2025-12-08 15:37:17.664] DEBUG: creating edges ...
-[2025-12-08 15:37:17.664] DEBUG: collecting edges ...
-[2025-12-08 15:37:17.664] INFO: A port are not connected in vertex index11
-[2025-12-08 15:37:17.664] INFO: A port are not connected in vertex index0
-[2025-12-08 15:37:17.664] INFO: A port are not connected in vertex index11
-[2025-12-08 15:37:17.664] INFO: A port are not connected in vertex index6
-[2025-12-08 15:37:17.664] INFO: A port are not connected in vertex index12
-[2025-12-08 15:37:17.664] DEBUG: totally created 26 edges
-[2025-12-08 15:37:17.664] DEBUG: creating hypergraph, with module_name: ...fifo
-[2025-12-08 15:37:17.664] DEBUG: found port clk in vertex 17 in edge 2
-[2025-12-08 15:37:17.664] DEBUG: found port count in vertex 18 in edge 6
-[2025-12-08 15:37:17.664] DEBUG: found port rdata in vertex 19 in edge 5
-[2025-12-08 15:37:17.664] DEBUG: found port ren in vertex 20 in edge 1
-[2025-12-08 15:37:17.664] DEBUG: found port rst in vertex 21 in edge 3
-[2025-12-08 15:37:17.664] DEBUG: found port wdata in vertex 22 in edge 4
-[2025-12-08 15:37:17.664] DEBUG: found port wen in vertex 23 in edge 0
-[2025-12-08 15:37:17.665] DEBUG: creating vertices ...
-[2025-12-08 15:37:17.665] DEBUG: totally created 9 vertices
-[2025-12-08 15:37:17.665] DEBUG: creating edges ...
-[2025-12-08 15:37:17.665] DEBUG: collecting edges ...
-[2025-12-08 15:37:17.665] INFO: A port are not connected in vertex index3
-[2025-12-08 15:37:17.665] INFO: A port are not connected in vertex index0
-[2025-12-08 15:37:17.665] INFO: A port are not connected in vertex index1
-[2025-12-08 15:37:17.665] DEBUG: totally created 11 edges
-[2025-12-08 15:37:17.665] DEBUG: creating hypergraph, with module_name: ...$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000
-[2025-12-08 15:37:17.665] DEBUG: found port addr in vertex 5 in edge 3
-[2025-12-08 15:37:17.665] DEBUG: found port clk in vertex 6 in edge 1
-[2025-12-08 15:37:17.665] DEBUG: found port en in vertex 7 in edge 0
-[2025-12-08 15:37:17.665] DEBUG: found port rst in vertex 8 in edge 2
-[2025-12-08 15:37:17.665] INFO: Existing isolated module not in top hierarchy!
-[2025-12-08 15:37:17.665] DEBUG: Testing modue2hgraph() ...
-[2025-12-08 15:37:17.665] DEBUG: $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000: 
-[2025-12-08 15:37:17.665] DEBUG: 5 hypergraph vertices: 
+[2025-12-10 12:47:12.374] DEBUG: Test end
+[2025-12-10 12:47:12.374] INFO: Building hypergraph ...
+[2025-12-10 12:47:12.374] DEBUG: collecting modules ...
+[2025-12-10 12:47:12.374] DEBUG: creating vertices ...
+[2025-12-10 12:47:12.374] DEBUG: cell fifo_reader is a module cell
+[2025-12-10 12:47:12.374] DEBUG: cell fifo_writer is a module cell
+[2025-12-10 12:47:12.374] DEBUG: totally created 24 vertices
+[2025-12-10 12:47:12.374] DEBUG: creating edges ...
+[2025-12-10 12:47:12.374] DEBUG: collecting edges ...
+[2025-12-10 12:47:12.374] INFO: A port are not connected in vertex index11
+[2025-12-10 12:47:12.374] INFO: A port are not connected in vertex index0
+[2025-12-10 12:47:12.374] INFO: A port are not connected in vertex index11
+[2025-12-10 12:47:12.374] INFO: A port are not connected in vertex index6
+[2025-12-10 12:47:12.374] INFO: A port are not connected in vertex index12
+[2025-12-10 12:47:12.374] DEBUG: totally created 26 edges
+[2025-12-10 12:47:12.374] DEBUG: creating hypergraph, with module_name: ...fifo
+[2025-12-10 12:47:12.374] DEBUG: found port count in vertex 18 in edge 6
+[2025-12-10 12:47:12.374] DEBUG: found port rdata in vertex 19 in edge 5
+[2025-12-10 12:47:12.374] DEBUG: found port wdata in vertex 22 in edge 4
+[2025-12-10 12:47:12.374] DEBUG: found port rst in vertex 21 in edge 3
+[2025-12-10 12:47:12.374] DEBUG: found port clk in vertex 17 in edge 2
+[2025-12-10 12:47:12.374] DEBUG: found port ren in vertex 20 in edge 1
+[2025-12-10 12:47:12.374] DEBUG: found port wen in vertex 23 in edge 0
+[2025-12-10 12:47:12.374] DEBUG: creating vertices ...
+[2025-12-10 12:47:12.374] DEBUG: totally created 9 vertices
+[2025-12-10 12:47:12.374] DEBUG: creating edges ...
+[2025-12-10 12:47:12.374] DEBUG: collecting edges ...
+[2025-12-10 12:47:12.374] INFO: A port are not connected in vertex index3
+[2025-12-10 12:47:12.374] INFO: A port are not connected in vertex index0
+[2025-12-10 12:47:12.374] INFO: A port are not connected in vertex index1
+[2025-12-10 12:47:12.374] DEBUG: totally created 11 edges
+[2025-12-10 12:47:12.374] DEBUG: creating hypergraph, with module_name: ...$paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000
+[2025-12-10 12:47:12.374] DEBUG: found port addr in vertex 5 in edge 3
+[2025-12-10 12:47:12.374] DEBUG: found port rst in vertex 8 in edge 2
+[2025-12-10 12:47:12.374] DEBUG: found port clk in vertex 6 in edge 1
+[2025-12-10 12:47:12.374] DEBUG: found port en in vertex 7 in edge 0
+[2025-12-10 12:47:12.374] INFO: Existing isolated module not in top hierarchy!
+[2025-12-10 12:47:12.374] DEBUG: Testing modue2hgraph() ...
+[2025-12-10 12:47:12.374] DEBUG: $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000: 
+[2025-12-10 12:47:12.374] DEBUG: 5 hypergraph vertices: 
 {vertex id: 0, name: $add$../../../yosys/demo.v:19$24
 weight: 1.000000
 type: a cell
@@ -439,7 +439,7 @@ port info:
 
 }
 {edge id = 3
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 0, A: input, bit_vector 5 6 7 8 9 10 11 12 
     vertex: 1, A: input, bit_vector 5 6 7 8 9 10 11 12 
@@ -448,7 +448,7 @@ port info:
 
 }
 {edge id = 4
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 0, Y: output, bit_vector 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 
     vertex: 3, A: input, bit_vector 13 14 15 16 17 18 19 20 
@@ -462,40 +462,40 @@ port info:
 
 }
 {edge id = 6
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 2, D: input, bit_vector 46 47 48 49 50 51 52 53 
     vertex: 4, Y: output, bit_vector 46 47 48 49 50 51 52 53 
 
 }
 {edge id = 7
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 3, Y: output, bit_vector 54 55 56 57 58 59 60 61 
     vertex: 4, B: input, bit_vector 54 55 56 57 58 59 60 61 
 
 }
 {edge id = 8
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 3, B: input, bit_vector 0 0 0 0 0 0 0 0 
 
 }
 {edge id = 9
-weight: 1.000000
+weight: 32.000000
 port info: 
     vertex: 0, B: input, bit_vector 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 
 }
 {edge id = 10
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 1, B: input, bit_vector 1 1 1 1 1 1 1 1 
 
 }
 
-[2025-12-08 15:37:17.665] DEBUG: fifo: 
-[2025-12-08 15:37:17.665] DEBUG: 17 hypergraph vertices: 
+[2025-12-10 12:47:12.374] DEBUG: fifo: 
+[2025-12-10 12:47:12.374] DEBUG: 17 hypergraph vertices: 
 {vertex id: 0, name: $add$../../../yosys/demo.v:66$17
 weight: 1.000000
 type: a cell
@@ -679,19 +679,19 @@ port info:
 
 }
 {edge id = 4
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 12, B: input, bit_vector 6 7 8 9 10 11 12 13 
 
 }
 {edge id = 5
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 8, Q: output, bit_vector 14 15 16 17 18 19 20 21 
 
 }
 {edge id = 6
-weight: 1.000000
+weight: 9.000000
 port info: 
     vertex: 0, A: input, bit_vector 22 23 24 25 26 27 28 29 30 
     vertex: 7, Q: output, bit_vector 22 23 24 25 26 27 28 29 30 
@@ -700,28 +700,28 @@ port info:
 
 }
 {edge id = 7
-weight: 1.000000
+weight: 9.000000
 port info: 
     vertex: 0, Y: output, bit_vector 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 
     vertex: 10, B: input, bit_vector 31 32 33 34 35 36 37 38 39 
 
 }
 {edge id = 8
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 1, ADDR: input, bit_vector 63 64 65 66 67 68 69 70 
     vertex: 13, Y: output, bit_vector 63 64 65 66 67 68 69 70 
 
 }
 {edge id = 9
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 1, DATA: input, bit_vector 71 72 73 74 75 76 77 78 
     vertex: 12, Y: output, bit_vector 71 72 73 74 75 76 77 78 
 
 }
 {edge id = 10
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 1, EN: input, bit_vector 79 80 81 82 83 84 85 86 
     vertex: 11, Y: output, bit_vector 79 80 81 82 83 84 85 86 
@@ -756,61 +756,61 @@ port info:
 
 }
 {edge id = 15
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 6, ADDR: input, bit_vector 91 92 93 94 95 96 97 98 
     vertex: 15, addr: output, bit_vector 91 92 93 94 95 96 97 98 
 
 }
 {edge id = 16
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 6, DATA: output, bit_vector 99 100 101 102 103 104 105 106 
     vertex: 8, D: input, bit_vector 99 100 101 102 103 104 105 106 
 
 }
 {edge id = 17
-weight: 1.000000
+weight: 9.000000
 port info: 
     vertex: 7, D: input, bit_vector 107 108 109 110 111 112 113 114 115 
     vertex: 10, Y: output, bit_vector 107 108 109 110 111 112 113 114 115 
 
 }
 {edge id = 18
-weight: 1.000000
+weight: 9.000000
 port info: 
     vertex: 9, B: input, bit_vector 116 117 118 119 120 121 122 123 124 
     vertex: 14, Y: output, bit_vector 116 117 118 119 120 121 122 123 124 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 
 
 }
 {edge id = 19
-weight: 1.000000
+weight: 9.000000
 port info: 
     vertex: 9, Y: output, bit_vector 125 126 127 128 129 130 131 132 133 
     vertex: 10, A: input, bit_vector 125 126 127 128 129 130 131 132 133 
 
 }
 {edge id = 20
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 13, B: input, bit_vector 134 135 136 137 138 139 140 141 
     vertex: 16, addr: output, bit_vector 134 135 136 137 138 139 140 141 
 
 }
 {edge id = 21
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 11, A: input, bit_vector 0 0 0 0 0 0 0 0 
 
 }
 {edge id = 22
-weight: 1.000000
+weight: 32.000000
 port info: 
     vertex: 0, B: input, bit_vector 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 
 }
 {edge id = 23
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 11, B: input, bit_vector 1 1 1 1 1 1 1 1 
 
@@ -822,10 +822,22 @@ port info:
 
 }
 {edge id = 25
-weight: 1.000000
+weight: 8.000000
 port info: 
     vertex: 12, A: input, bit_vector x x x x x x x x 
 
 }
 
-[2025-12-08 15:37:17.665] DEBUG: Test end
+[2025-12-10 12:47:12.375] DEBUG: Test end
+[2025-12-10 12:47:12.375] DEBUG: Testing hierarchy ...
+[2025-12-10 12:47:12.375] DEBUG: roots: fifo 
+[2025-12-10 12:47:12.375] DEBUG: module fifo:
+[2025-12-10 12:47:12.375] DEBUG:   fifo_reader -> $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000
+[2025-12-10 12:47:12.375] DEBUG:   fifo_writer -> $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000
+[2025-12-10 12:47:12.375] DEBUG:   parents: none
+[2025-12-10 12:47:12.375] DEBUG: module $paramod\addr_gen\MAX_DATA=s32'00000000000000000000000100000000:
+[2025-12-10 12:47:12.375] DEBUG:   children: none
+[2025-12-10 12:47:12.375] DEBUG:   parents: fifo 
+[2025-12-10 12:47:12.375] DEBUG: Test end
+[2025-12-10 12:47:12.375] DEBUG: Testing hgraph2hMetis output ...
+[2025-12-10 12:47:12.375] DEBUG: hMetis file written for module fifo: ../kahypar/run_hmetis.txt

@@ -1,4 +1,4 @@
-#include "./verilog2hgraph/reader.hh"
+#include "./verilog2kahypar/reader.hh"
 #include "./global/debug.hh"
 #include <exception>
 #include <iostream>
@@ -26,6 +26,8 @@ try{
     reader.test_read();
     auto hg = reader.modue2hgraph();
     reader.test_hgraph(hg);
+    reader.test_hierarchy();
+    reader.test_hmetis_output(hg, "../kahypar/run_hmetis.txt", 11);
     
     return 0;
 }
